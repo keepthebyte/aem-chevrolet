@@ -69,7 +69,7 @@ footer .footer-cta .default-content-wrapper {
   display: grid;
   grid-template-columns: 144px 144px;
   gap: 18px;
-  margin-top: 25px;
+  margin-top: 21px;
 }
 
 footer .footer-cta a.button.secondary {
@@ -236,18 +236,22 @@ footer .footer-prefs .icon {
   footer .footer-prefs {
     position: absolute;
     left: 72px;
-    top: 426px;
+    top: 432px;
   }
 
   footer .footer-prefs .default-content-wrapper {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 92px;
     margin: 0;
   }
 
+  footer .footer-prefs a:any-link {
+    align-items: flex-start;
+  }
+
   footer .footer-prefs .icon {
-    margin-right: 5px;
+    margin: -3px 5px 0 0;
   }
 }
 
