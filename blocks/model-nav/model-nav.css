@@ -1,0 +1,108 @@
+/* gb-secondary-nav — sticky, #f2f2f2, 1px #b3b3b3 bottom rule (lifted) */
+main .section.model-nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.model-nav {
+  height: 61px;
+  border-bottom: 1px solid var(--c-rule);
+  background: var(--c-chrome);
+}
+
+.model-nav .model-nav-bar {
+  position: relative;
+  height: 60px;
+}
+
+.model-nav .model-nav-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.model-nav .model-nav-list li {
+  display: none;
+}
+
+.model-nav .model-nav-list li.is-current {
+  display: block;
+  padding: 19px 24px;
+}
+
+.model-nav .model-nav-list a:any-link {
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.model-nav .model-nav-list li.is-current a:any-link {
+  color: var(--c-text);
+}
+
+.model-nav .model-nav-toggle {
+  position: absolute;
+  right: 24px;
+  top: 18px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: var(--i-chevron-circle) no-repeat center / contain;
+  cursor: pointer;
+}
+
+.model-nav.is-open .model-nav-list li {
+  display: block;
+  padding: 12px 24px;
+  background: var(--c-chrome);
+}
+
+@media (width >= 800px) {
+  .model-nav {
+    height: 60px;
+    padding: 12px 24px;
+  }
+
+  .model-nav .model-nav-bar {
+    height: auto;
+  }
+
+  .model-nav .model-nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .model-nav .model-nav-list li,
+  .model-nav .model-nav-list li.is-current,
+  .model-nav.is-open .model-nav-list li {
+    display: block;
+    padding: 0;
+    background: none;
+  }
+
+  .model-nav .model-nav-list a:any-link {
+    display: block;
+    margin-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .model-nav .model-nav-list li.is-current a:any-link {
+    color: var(--c-blue);
+    border-bottom-color: var(--c-blue);
+  }
+
+  .model-nav .model-nav-toggle {
+    display: none;
+  }
+}
+
+/* observed live hover (motion-observe): link color → #0e4180 */
+.model-nav .model-nav-list li a:any-link:hover {
+  color: #0e4180;
+}
