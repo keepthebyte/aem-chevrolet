@@ -2,7 +2,8 @@
    head per half = year (14px, 2026 w600 / 2025 w500) + model h3 (700 32/32, -.64; <800 24/24, -.48);
    bars #1a1a1a (p 500 16/22.4 white, pad 10); values 700 20/28 (<800 18/25.2) in a column = 50% of the half
    (first spec row, left: 50% - 12 with a 12px left gutter), captions 500 12/16.8, verdict icon centered below
-   (check 30px mt 8, x 24px mt 10 / 9), 24px above and below each cell (<800: 25 / 23). */
+   (check 30px mt 8, x 24px mt 10 / 9), 24px above and below each cell (<800: 25 / 23).
+   Small-screen twin (ford Super Cruise, bp-360): alt set replaces the main set < 800, icon below it. */
 .compare-table {
   margin-top: 55px;
   padding: 0 var(--inset);
@@ -95,7 +96,23 @@
   margin-top: 8px;
 }
 
+.compare-table .compare-table-alt {
+  display: none;
+}
+
 @media (width < 800px) {
+  .compare-table .compare-table-has-alt .compare-table-main {
+    display: none;
+  }
+
+  .compare-table .compare-table-has-alt .compare-table-alt {
+    display: block;
+  }
+
+  .compare-table .compare-table-has-alt .compare-table-icon {
+    order: 1;
+  }
+
   .compare-table {
     margin-top: 44px;
   }

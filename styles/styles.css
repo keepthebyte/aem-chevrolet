@@ -1520,6 +1520,24 @@ main .section.h2h-wait .default-content-wrapper a.button:any-link:hover {
   }
 }
 
+/* h2h-loose (Ford looks section, ford-bp-1440/360): heading→first image +100 @1440 / +96 @360 (Rivian +80 / +88),
+   360 arrows→More Photos 60px (Rivian 40) */
+main .section.h2h-looks.h2h-loose .carousel.gallery.h2h {
+  margin-top: 32px;
+}
+
+@media (width < 800px) {
+  main .section.h2h-looks.h2h-loose .carousel-wrapper ~ .default-content-wrapper {
+    margin-top: 60px;
+  }
+}
+
+@media (width >= 800px) {
+  main .section.h2h-looks.h2h-loose .carousel.gallery.h2h {
+    margin-top: 60px;
+  }
+}
+
 
 
 /* Experience Workspace edit mode (EW3/EW6) — scoped to the da.live editor only */

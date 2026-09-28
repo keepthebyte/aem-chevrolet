@@ -167,3 +167,13 @@
     margin-top: 8px;
   }
 }
+
+/* `flush` (Ford row 1, ford-bp-1440/360): the body sits directly under the h3 and the link 16px under the body
+   (row height unchanged: h3 → link box +244 @1440, +242 @360) */
+.columns.h2h.flush p:not(:has(picture, img, a:not([href*="/content/experience-fragments/"]))) {
+  margin-top: 0;
+}
+
+.columns.h2h.flush p:has(a:not([href*="/content/experience-fragments/"])) {
+  margin-top: 16px;
+}

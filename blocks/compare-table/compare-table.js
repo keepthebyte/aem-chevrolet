@@ -7,6 +7,9 @@
  *   one row per spec (3 cells): | <p>label</p> | values [+ (caption)] + <img> | values + <img> |
  * Value cells: each heading/paragraph is a value, except a parenthesised one "( … )" — its
  * caption; a paragraph holding only an image is the verdict icon. Disclosure links stay inline.
+ * Small-screen twin (the source carries one where the < 800 cell differs): headings authored AFTER
+ * the verdict icon — first = value, the rest caption style; shown < 800 in place of those before
+ * the icon (which then show >= 800 only). The icon stays below whichever set is visible.
  * The head row is found by content (a cell with an <h3>, no image), never by index.
  * Nodes are moved, never rebuilt (EW1); generated wrappers carry the layout classes (EW2).
  */
@@ -22,10 +25,17 @@ const isCaption = (el) => /^\(.*\)$/s.test(text(el));
 
 function decorateSide(cell, index) {
   cell.classList.add('compare-table-side', `compare-table-side-${index}`);
-  [...cell.children].forEach((el) => {
+  const kids = [...cell.children];
+  const iconAt = kids.findIndex(isIcon);
+  const hasAlt = iconAt > -1 && iconAt < kids.length - 1;
+  if (hasAlt) cell.classList.add('compare-table-has-alt');
+  kids.forEach((el, i) => {
     let cls = 'compare-table-value';
-    if (isIcon(el)) cls = 'compare-table-icon';
-    else if (isCaption(el)) cls = 'compare-table-caption';
+    if (i === iconAt) cls = 'compare-table-icon';
+    else if (hasAlt && i > iconAt) {
+      cls = i === iconAt + 1 ? 'compare-table-value compare-table-alt' : 'compare-table-caption compare-table-alt';
+    } else if (isCaption(el)) cls = 'compare-table-caption';
+    if (hasAlt && i < iconAt) cls += ' compare-table-main';
     const w = document.createElement('div');
     w.className = cls;
     el.before(w);
