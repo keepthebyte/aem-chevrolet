@@ -2,7 +2,7 @@
 footer .gfoot {
   position: relative;
   min-height: 731px;
-  padding: 21px 27px 0;
+  padding: 18px 27px 0;
   background: var(--c-chrome);
   color: var(--c-text);
   font-family: var(--f-sans);
@@ -64,7 +64,7 @@ footer .footer-cta .default-content-wrapper {
   display: grid;
   grid-template-columns: 144px 144px;
   gap: 18px;
-  margin-top: 22px;
+  margin-top: 25px;
 }
 
 footer .footer-cta a.button.secondary {
@@ -129,7 +129,7 @@ footer .footer-prefs .default-content-wrapper {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  margin-top: 11px;
+  margin-top: 18px;
 }
 
 footer .footer-prefs a:any-link {
