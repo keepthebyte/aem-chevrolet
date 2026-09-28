@@ -90,10 +90,13 @@ footer .footer-cta .icon {
 }
 
 footer .footer-social .default-content-wrapper {
+  margin-top: 86px;
+}
+
+footer .footer-social p {
   display: flex;
   justify-content: center;
   gap: 21px;
-  margin-top: 86px;
 }
 
 footer .footer-social img {
@@ -205,8 +208,11 @@ footer .footer-prefs .icon {
   }
 
   footer .footer-social .default-content-wrapper {
-    gap: 13px;
     margin: 0;
+  }
+
+  footer .footer-social p {
+    gap: 13px;
   }
 
   footer .footer-legal {
