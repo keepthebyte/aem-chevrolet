@@ -45,6 +45,13 @@
   }
 }
 
+/* 1200–1439 (live 1200/1300): 4 fluid columns, gap 40 (210 / 235) — 1440 keeps 270 */
+@media (width >= 1200px) and (width < 1440px) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (width < 800px) {
   .stats {
     grid-template-columns: 1fr;

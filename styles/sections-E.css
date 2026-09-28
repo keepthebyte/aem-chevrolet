@@ -177,3 +177,10 @@ main .section.recall-note .default-content-wrapper a:any-link {
     grid-template-columns: 787px 373px;
   }
 }
+
+/* 1200–1439 (live 1200/1300): disclaimer | CTA as 68fr | 32fr beside the 40 gap (627|293, 693|327) */
+@media (width >= 1200px) and (width < 1440px) {
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+    grid-template-columns: 68fr 32fr;
+  }
+}

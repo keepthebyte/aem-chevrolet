@@ -76,6 +76,35 @@
   background: var(--i-link-arrow) no-repeat center / contain;
 }
 
+/* 800–1199 (live 800/1000/1199): 12-col grid — icon col 1 (x inset−12), text cols 2–9 (x inset+col+2,
+   w 440/573/706), link right-aligned; row vertically centred (2-line body at 800) */
+@media (width >= 800px) and (width < 1200px) {
+  .trade-in .trade-in-row {
+    grid-template-columns: calc(100% / 12) calc(100% * 8 / 12 - 8px) 1fr;
+    column-gap: 0;
+    align-items: center;
+  }
+
+  .trade-in .trade-in-icon {
+    margin-left: -12px;
+  }
+
+  .trade-in .trade-in-text {
+    margin-left: 2px;
+  }
+
+  .trade-in .trade-in-link {
+    padding-top: 0;
+  }
+}
+
+/* 1200–1439: desktop grid with a fluid text column (1440 keeps 787) */
+@media (width >= 1200px) and (width < 1440px) {
+  .trade-in .trade-in-row {
+    grid-template-columns: 60px minmax(0, 787px) 1fr;
+  }
+}
+
 @media (width < 800px) {
   .trade-in .trade-in-row {
     grid-template-columns: 1fr;

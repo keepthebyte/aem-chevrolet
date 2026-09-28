@@ -31,6 +31,17 @@
   color: var(--c-text);
 }
 
+/* 800–1199 (live): column gap 24 (cols 208/275/341), row gap min(4vw, 40px) (800: 32), icons 8.3 % of the column × 45 */
+@media (width >= 800px) and (width < 1200px) {
+  .icon-grid {
+    gap: min(4vw, 40px) 24px;
+  }
+
+  .icon-grid .icon-grid-icon img {
+    width: 8.3%;
+  }
+}
+
 @media (width < 800px) {
   .icon-grid {
     grid-template-columns: 1fr;

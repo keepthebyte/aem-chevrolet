@@ -201,10 +201,75 @@
   text-decoration: underline;
 }
 
-@media (width < 1200px) {
+/* 800–1199 (live 800 / 1199): box inset 69, fields ⅓ each (221 / 354), button column = rest; result columns 33 %
+   (218 / 350), image 67 % at 2:1 from x=33 % (444×222 / 711×355), column top padding scales (ev 50→71, gas 50→73),
+   note = column − 13 (205 / 338) */
+@media (width >= 800px) and (width < 1200px) {
   .ev-calculator-container .ev-calculator-wrapper {
-    padding-right: 64px;
-    padding-left: 64px;
+    padding-right: 69px;
+    padding-left: 69px;
+  }
+
+  .ev-calculator .ev-calculator-form {
+    grid-template-columns: calc(100% / 3) calc(100% / 3) 1fr;
+  }
+
+  .ev-calculator .ev-calculator-cols {
+    width: 33%;
+  }
+
+  .ev-calculator .ev-calculator-result {
+    padding-top: calc(8px + 5.26vw);
+  }
+
+  .ev-calculator .ev-calculator-result.gas {
+    padding-top: calc(4px + 5.76vw);
+  }
+
+  .ev-calculator .ev-calculator-note {
+    width: calc(100% - 13px);
+  }
+
+  .ev-calculator .ev-calculator-media,
+  .ev-calculator .ev-calculator-media img {
+    width: 67%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .ev-calculator .ev-calculator-media {
+    left: 33%;
+  }
+
+  .ev-calculator .ev-calculator-media img {
+    width: 100%;
+  }
+}
+
+/* 1200–1439: same fractions on the fluid 1200-inset box (1440 keeps its measured px values) */
+@media (width >= 1200px) and (width < 1440px) {
+  .ev-calculator .ev-calculator-form {
+    grid-template-columns: calc(100% / 3) calc(100% / 3) 1fr;
+  }
+
+  .ev-calculator .ev-calculator-cols {
+    width: 33%;
+  }
+
+  .ev-calculator .ev-calculator-note {
+    width: calc(100% - 23px);
+  }
+
+  .ev-calculator .ev-calculator-media {
+    left: 33%;
+    width: 67%;
+    height: auto;
+  }
+
+  .ev-calculator .ev-calculator-media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
   }
 }
 

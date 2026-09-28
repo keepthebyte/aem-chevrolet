@@ -255,6 +255,159 @@ footer .footer-prefs .icon {
   }
 }
 
+/* 1200–1439: live desktop footer scales with the viewport (stardust/replica/lift/rivian-bp-1200|1300) */
+@media (width >= 1200px) and (width < 1440px) {
+  footer .gfoot {
+    min-height: calc(489px + 3vw);
+    padding: 28px 5vw 0;
+  }
+
+  footer .footer-logo img {
+    width: 25.55vw;
+    height: auto;
+  }
+
+  footer .footer-links {
+    margin-top: 36px;
+  }
+
+  footer .footer-links .default-content-wrapper {
+    grid-template-columns: repeat(3, 19.44vw);
+  }
+
+  footer .footer-cta {
+    left: 83.9vw;
+    top: calc(52px + 3vw);
+    width: 11.11vw;
+  }
+
+  footer .footer-cta .default-content-wrapper {
+    grid-template-columns: 11.11vw;
+  }
+
+  footer .footer-cta a.button.secondary {
+    width: 11.11vw;
+  }
+
+  footer .footer-cta a.footer-search:any-link {
+    height: 68px;
+  }
+
+  footer .footer-social {
+    left: 85vw;
+    top: 406px;
+  }
+
+  footer .footer-social .default-content-wrapper > p {
+    gap: calc(3.333vw - 35px);
+  }
+
+  footer .footer-legal {
+    left: 5vw;
+    top: 384px;
+    width: 74.17vw;
+  }
+
+  footer .footer-prefs {
+    left: 5vw;
+    top: 448px;
+  }
+}
+
+/* 800–1199: live footer is a fluid 3-column grid (stardust/replica/lift/rivian-bp-800|1000|1199):
+   inset 7.5vw, logo 55vw, link cols content/3, CTA row in cols 1–2 (gutter 2.5vw), social in col 3 */
+@media (width >= 800px) and (width < 1200px) {
+  footer .gfoot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    min-height: 0;
+    padding: 25px 7.5vw 45px;
+  }
+
+  footer .gfoot > .section {
+    grid-column: 1 / -1;
+  }
+
+  footer .footer-logo img {
+    width: 55vw;
+    height: auto;
+  }
+
+  footer .footer-links {
+    margin-top: 31px;
+  }
+
+  footer .footer-links .default-content-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  footer .footer-links ul {
+    gap: 6px;
+  }
+
+  footer .gfoot > .footer-cta {
+    position: static;
+    grid-column: 1 / 3;
+    width: auto;
+    margin-top: 40px;
+  }
+
+  footer .footer-cta .default-content-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  footer .footer-cta p {
+    width: calc(100% - 2.5vw);
+  }
+
+  footer .footer-cta p:last-child {
+    justify-self: end;
+  }
+
+  footer .footer-cta a.button.secondary {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  footer .footer-cta a.footer-search:any-link {
+    width: 100%;
+  }
+
+  footer .gfoot > .footer-social {
+    position: static;
+    grid-column: 3;
+    justify-self: center;
+    margin: 44px 0 0 26px;
+  }
+
+  footer .footer-social .default-content-wrapper > p {
+    gap: calc(6vw - 37px);
+  }
+
+  footer .footer-legal {
+    position: static;
+    width: auto;
+    margin-top: 53px;
+  }
+
+  footer .footer-legal .default-content-wrapper {
+    padding-bottom: 12px;
+  }
+
+  footer .footer-prefs {
+    position: static;
+  }
+
+  footer .footer-prefs .default-content-wrapper {
+    display: grid;
+    grid-template-columns: calc(100% / 6 + 10px) calc(100% / 3 - 10px);
+    gap: 0;
+    margin-top: 25px;
+  }
+}
+
 /* chat launcher — fixed, lifted from the live FAB (56px, #0077d9, bottom 45 / right 30) */
 .chat-launcher {
   position: fixed;

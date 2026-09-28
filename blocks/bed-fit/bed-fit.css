@@ -95,14 +95,49 @@
   text-align: center;
 }
 
-@media (width < 1200px) {
+/* 800–1199 (live 800/1000/1199): photo 75 % − 6 (498/648/797) + 24 gap, spec column centred on the photo row
+   (taller spec at 800 → both top-aligned); tabs gap 24 (150/200/250) */
+@media (width >= 800px) and (width < 1200px) {
   .bed-fit .bed-fit-panel {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: calc(75% - 6px) 1fr;
+    column-gap: 24px;
+    align-items: start;
+  }
+
+  .bed-fit .bed-fit-spec {
+    align-self: center;
+    min-width: 0;
+  }
+
+  .bed-fit .bed-fit-length {
+    padding-right: 5px; /* live's length line needs >200 → wraps at 800/1000, fits at 1199 */
+  }
+
+  .bed-fit .bed-fit-spec ul {
+    width: auto;
   }
 
   .bed-fit .bed-fit-photo img {
     width: 100%;
     height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .bed-fit .bed-fit-tabs {
+    column-gap: 24px;
+  }
+}
+
+/* 1200–1439: desktop proportions on the fluid box (1440 keeps its px) */
+@media (width >= 1200px) and (width < 1440px) {
+  .bed-fit .bed-fit-panel {
+    grid-template-columns: calc(75% - 10px) 1fr;
+  }
+
+  .bed-fit .bed-fit-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
   }
 }
 

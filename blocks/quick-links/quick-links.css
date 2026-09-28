@@ -68,9 +68,30 @@
   background: var(--i-link-arrow) no-repeat center / contain;
 }
 
-@media (width >= 1200px) {
+/* fluid >= 800 (live): 4 equal columns — 40px gap / 32px tile padding at >= 1200 (1440: 270 cols, 206 titles);
+   24px gap / 16px padding at 800–1199 (800: cols 150, titles 118; 1000: 200/168; 1199: 250/218) */
+@media (width >= 800px) {
   .quick-links .quick-links-list {
-    grid-template-columns: repeat(4, 270px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .quick-links .quick-links-tile {
+    padding-right: 32px;
+  }
+
+  .quick-links .quick-links-title {
+    width: auto;
+  }
+}
+
+@media (width >= 800px) and (width < 1200px) {
+  .quick-links .quick-links-list {
+    column-gap: 24px;
+  }
+
+  .quick-links .quick-links-tile {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

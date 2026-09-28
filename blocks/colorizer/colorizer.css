@@ -194,6 +194,29 @@ main .section.colorizer-container {
   }
 }
 
+/* 1200–1439 (live 1200/1300): panel 36 % (346 / 382), stage = rest beside the 80 gap (534 / 598) at 2:1;
+   frame overdraws the stage as at 1440 (709 over 688); helper keeps its 1440 offset from the stage centre */
+@media (width >= 1200px) and (width < 1440px) {
+  .colorizer .colorizer-body {
+    grid-template-columns: minmax(0, 1fr) 36%;
+  }
+
+  .colorizer .colorizer-stage {
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .colorizer .colorizer-frame img {
+    width: 103.05%;
+    height: auto;
+  }
+
+  .colorizer .colorizer-helper {
+    top: calc(50% - 54px);
+    left: calc(50% - 52px);
+  }
+}
+
 @media (width < 1200px) {
   .colorizer .colorizer-frame img {
     width: 100%;

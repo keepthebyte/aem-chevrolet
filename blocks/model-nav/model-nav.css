@@ -102,6 +102,27 @@ main .section.model-nav-container {
   }
 }
 
+/* 800–1199 (live 800): links shrink below min-content in proportion and wrap to two lines, bar grows to 78,
+   40px side padding (800: Silverado EV 94→76 … Value Your Trade-In 145→118, each stretched to the row) */
+@media (width >= 800px) and (width < 1200px) {
+  .model-nav {
+    height: auto;
+    min-height: 60px;
+    padding: 12px 40px;
+  }
+
+  .model-nav .model-nav-list li,
+  .model-nav .model-nav-list li.is-current,
+  .model-nav.is-open .model-nav-list li {
+    display: flex;
+    min-width: 0;
+  }
+
+  .model-nav .model-nav-list a:any-link {
+    white-space: normal;
+  }
+}
+
 /* observed live hover (motion-observe): link color → #0e4180 */
 .model-nav .model-nav-list li a:any-link:hover {
   color: #0e4180;

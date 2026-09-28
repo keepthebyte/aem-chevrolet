@@ -96,3 +96,13 @@
     grid-template-columns: 580px 620px;
   }
 }
+
+/* 1200–1439 (live 1200/1300): image column 50 % − 20 (460 / 510) + 20 gap, text 50 % + 20 (runs 20 into the right
+   inset, as 1440's 580|620); text block (~290) vertically centred on the image */
+@media (width >= 1200px) and (width < 1440px) {
+  .columns.compare > div {
+    grid-template-columns: calc(50% - 20px) calc(50% + 20px);
+    height: auto;
+    align-items: center;
+  }
+}

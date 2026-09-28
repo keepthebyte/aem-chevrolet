@@ -58,3 +58,20 @@
     line-height: 28px;
   }
 }
+
+/* 800–1199 (live): 24 gap (images 324/424/524); text centred on the image with a 23px bottom offset
+   (1440's 93 top margin is the same geometry at that width) */
+@media (width >= 800px) and (width < 1200px) {
+  .columns.tailgate > div {
+    column-gap: 24px;
+    align-items: center;
+  }
+
+  .columns.tailgate > div > div:last-child {
+    padding-bottom: 23px;
+  }
+
+  .columns.tailgate h3 {
+    margin-top: 0;
+  }
+}
