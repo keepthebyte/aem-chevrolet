@@ -2,7 +2,7 @@
 footer .gfoot {
   position: relative;
   min-height: 731px;
-  padding: 18px 27px 0;
+  padding: 21px 27px 0;
   background: var(--c-chrome);
   color: var(--c-text);
   font-family: var(--f-sans);
@@ -58,6 +58,11 @@ footer :is(.footer-links, .footer-links-sm) li {
 footer :is(.footer-links, .footer-links-sm) a:any-link {
   display: block;
   text-decoration: none;
+}
+
+/* the source's two-line GM Financial item sits 4px lower in the mobile column (content-anchored) */
+footer .footer-links-sm a[href*="gmfinancial"]:any-link {
+  padding-top: 4px;
 }
 
 footer .footer-cta .default-content-wrapper {
@@ -231,7 +236,7 @@ footer .footer-prefs .icon {
   footer .footer-prefs {
     position: absolute;
     left: 72px;
-    top: 432px;
+    top: 426px;
   }
 
   footer .footer-prefs .default-content-wrapper {
