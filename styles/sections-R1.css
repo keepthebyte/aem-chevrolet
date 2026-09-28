@@ -1,0 +1,67 @@
+/* sections-R1 — `compare-section`: centered h2 (gb-headline3) + h3 lede (gb-headline6, 500) above the compare-table block,
+   CTA pair below it (Vehicle Details 270px / Request a Test Drive 290px, right-aligned at the inset, gap 28, 40px under the table;
+   < 800: stacked 280px centered, gap 16, 32px under the table). Lifted from rivian bp-1440 / bp-360. */
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) {
+  padding-top: 60px;
+  text-align: center;
+}
+
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h2 {
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+}
+
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+  margin-top: 20px;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.primary {
+  width: 270px;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.secondary {
+  width: 290px;
+}
+
+@media (width < 800px) {
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) {
+    padding-top: 56px;
+  }
+
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h2 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.primary,
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.secondary {
+    width: 280px;
+  }
+}

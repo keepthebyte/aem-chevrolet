@@ -1,0 +1,43 @@
+/* icon-grid variant `safety` (C3, commercial) — lifted from prototype css/parts-commercial-silverado-ev/30-safety.css:
+   3-up 373px columns / 40px gaps, 40px icons, 20/28 titles 20px under the icon; 1-up <800 (10px title gap) */
+.icon-grid.safety {
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.icon-grid.safety .icon-grid-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-grid.safety .icon-grid-title {
+  margin-top: 20px;
+}
+
+@media (width >= 800px) and (width < 1200px) {
+  .icon-grid.safety {
+    gap: 40px;
+  }
+
+  .icon-grid.safety .icon-grid-icon img {
+    width: 40px;
+  }
+}
+
+@media (width < 800px) {
+  .icon-grid.safety {
+    margin-top: 40px;
+  }
+
+  .icon-grid.safety .icon-grid-icon img {
+    width: 40px;
+  }
+
+  .icon-grid.safety .icon-grid-title {
+    margin-top: 10px;
+  }
+
+  .icon-grid.safety .icon-grid-title :is(p, h3) {
+    height: auto;
+  }
+}

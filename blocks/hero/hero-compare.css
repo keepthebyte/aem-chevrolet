@@ -1,0 +1,39 @@
+/* hero.compare — h2h masthead (rivian bp-1440 / bp-360, prototype 10-hero.css): no year / price;
+   title = gb-headline1 (NOT the black display face): 500 64/64, -1.28 at y+32, the source's authored line break after "vs." kept;
+   invert CTAs 234px wide (bottom 20 = base top 508); < 800: 48/48, -.96, CTAs 232px centered, 24 below the image, gap 26. */
+.hero.compare .hero-title {
+  top: 32px;
+  right: 0;
+}
+
+.hero.compare .hero-title :is(h1, h2) {
+  font: 500 64px/64px var(--f-sans);
+  letter-spacing: -1.28px;
+}
+
+.hero.compare .hero-actions a:any-link {
+  width: 234px;
+}
+
+@media (width < 800px) {
+  .hero.compare .hero-title {
+    top: 32px;
+    width: auto;
+  }
+
+  .hero.compare .hero-title :is(h1, h2) {
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -0.96px;
+  }
+
+  .hero.compare .hero-actions {
+    justify-items: center;
+    gap: 26px;
+    padding: 24px var(--inset) 0;
+  }
+
+  .hero.compare .hero-actions a:any-link {
+    width: 232px;
+  }
+}

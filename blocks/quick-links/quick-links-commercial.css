@@ -1,0 +1,23 @@
+/* quick-links variant `commercial` (C3) — prototype 34-tools.css: 92px under the explore CTAs, title 13px under the
+   icon (6px on the first tile — live), 70px row gap <800 */
+.quick-links-container .quick-links-wrapper:has(.quick-links.commercial) {
+  padding-top: 92px;
+}
+
+.quick-links.commercial .quick-links-title {
+  margin-top: 13px;
+}
+
+.quick-links.commercial li:first-child .quick-links-title {
+  margin-top: 6px;
+}
+
+@media (width < 800px) {
+  .quick-links-container .quick-links-wrapper:has(.quick-links.commercial) {
+    padding-top: 92px;
+  }
+
+  .quick-links.commercial .quick-links-list {
+    row-gap: 70px;
+  }
+}

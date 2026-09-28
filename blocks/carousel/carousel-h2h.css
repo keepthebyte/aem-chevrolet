@@ -1,0 +1,23 @@
+/* carousel gallery h2h — "These looks are electric" (band R2; prototype parts-…-rivian-r1t/21-looks). Deltas over
+   carousel-gallery.css: no caption cells, natural image height (2000×998 → 560×279), 24/40px track gap, 24px nav gap. */
+.carousel.gallery.h2h {
+  margin-top: 24px;
+}
+
+.carousel.gallery.h2h .carousel-media img {
+  height: auto;
+}
+
+@media (width >= 800px) {
+  .carousel.gallery.h2h {
+    margin-top: 40px;
+  }
+
+  .carousel.gallery.h2h .carousel-media img {
+    height: auto;
+  }
+
+  .carousel.gallery.h2h .carousel-nav {
+    margin-top: 24px;
+  }
+}

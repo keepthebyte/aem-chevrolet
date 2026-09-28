@@ -1,0 +1,38 @@
+/* quick-links h2h — shopping tools closing the rivian comparison (band R2; prototype parts-…-rivian-r1t/23-tools).
+   Live: 112px above and below, 32px icon→title, 4th tile overhangs its column (360: x−12 w104; 800–1199: ±12; >=1200: ±20 → 1440 x1062 w246). */
+.quick-links-container .quick-links-wrapper:has(.quick-links.h2h) {
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.quick-links.h2h .quick-links-title {
+  margin-top: 32px;
+}
+
+.quick-links.h2h li:nth-child(4) .quick-links-tile {
+  margin-left: -12px;
+}
+
+.quick-links.h2h li:nth-child(4) .quick-links-title {
+  width: 104px;
+}
+
+@media (width >= 800px) {
+  .quick-links-container .quick-links-wrapper:has(.quick-links.h2h) {
+    padding-top: 112px;
+  }
+
+  .quick-links.h2h li:nth-child(4) .quick-links-tile {
+    margin: 0 -12px;
+  }
+
+  .quick-links.h2h li:nth-child(4) .quick-links-title {
+    width: auto;
+  }
+}
+
+@media (width >= 1200px) {
+  .quick-links.h2h li:nth-child(4) .quick-links-tile {
+    margin: 0 -20px;
+  }
+}

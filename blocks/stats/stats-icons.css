@@ -1,0 +1,54 @@
+/* stats icons — 3-up centred icon stats (band C2, commercial CAPABILITY; prototype parts-commercial-silverado-ev/20-capability).
+   Authored: one row per stat, cell 1 = icon <img> paragraph + value paragraph, cell 2 = caption.
+   Live 1440: cols (1200-80)/3, icon 40 → value 20/28 700 #000 → caption 12/16.8 inset 20; 360: stacked, 42 apart. */
+.stats.icons.block {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 40px;
+  align-items: start;
+  margin-top: 40px;
+  padding: 0 var(--inset);
+  text-align: center;
+}
+
+.stats.icons.block .stats-item {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.stats.icons.block .stat-label {
+  margin: 0 20px;
+}
+
+.stats.icons.block .stat-label p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.stats.icons.block .stat-value p {
+  margin: 0;
+  font: 700 20px/28px var(--f-sans);
+  letter-spacing: normal;
+  color: #000;
+}
+
+.stats.icons.block .stat-value p:has(img) {
+  line-height: 0;
+}
+
+.stats.icons.block .stat-value img {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+@media (width < 800px) {
+  .stats.icons.block {
+    grid-template-columns: 1fr;
+  }
+
+  .stats.icons.block .stat-value p {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+}

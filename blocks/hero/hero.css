@@ -1,3 +1,6 @@
+@import url('hero-compare.css');
+@import url('hero-commercial.css');
+
 /* hero — lifted from the live masthead (bp-1440 / bp-360): stage 576px (>= 800) / 480px (< 800),
    content at var(--inset); year y+100, title y+129, price y+522, CTAs y+508 right-aligned (284px each, 32px gap). */
 .hero-container .hero-wrapper {

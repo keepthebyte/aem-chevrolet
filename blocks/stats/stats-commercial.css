@@ -1,0 +1,58 @@
+/* stats commercial (C1, /commercial/silverado-ev) — authored as A's model: one row per stat, value <p><strong>, label <p>.
+   Key-stat band (`stats commercial`): live 1440 first line 75px under the masthead, h5 figures 24/28.8 (20/24 < 800),
+   rule 9px under the label (8 < 800); < 800 stacked from 56px, 24px gaps (28 before the 3rd row), last without rule.
+   Charging delta (`stats charging commercial`, over C's stats-charging.css): first stat 17px to its rule (8 < 800),
+   16px between the stats, 46px above the pair < 800. `.block` raises specificity over the base + charging rules. */
+/* stylelint-disable no-descending-specificity -- rules are scoped to different sections/variants; no element matches two of them */
+.stats.commercial.block:not(.charging) {
+  padding-top: 75px;
+}
+
+.stats.commercial.block:not(.charging) .stats-item {
+  padding-bottom: 9px;
+}
+
+.stats.commercial.block:not(.charging) .stat-value :is(p, h2, h3, h4) {
+  font: 700 24px/28.8px var(--f-sans);
+  letter-spacing: normal;
+}
+
+.stats.charging.commercial.block .stats-item:where(:first-child) {
+  padding-bottom: 17px;
+}
+
+.stats.charging.commercial.block .stats-item + .stats-item {
+  margin-top: 16px;
+}
+
+@media (width < 800px) {
+  .stats.commercial.block:not(.charging) {
+    row-gap: 24px;
+    padding-top: 56px;
+  }
+
+  .stats.commercial.block:not(.charging) .stats-item {
+    padding-bottom: 8px;
+  }
+
+  .stats.commercial.block:not(.charging) .stats-item:nth-child(3) {
+    margin-top: 5px;
+  }
+
+  .stats.commercial.block:not(.charging) .stats-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .stats.commercial.block:not(.charging) .stat-value :is(p, h2, h3, h4) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .stats.charging.commercial.block {
+    margin-top: 46px;
+  }
+
+  .stats.charging.commercial.block .stats-item:where(:first-child) {
+    padding-bottom: 8px;
+  }
+}

@@ -1,6 +1,9 @@
 @import url('stats-capability.css');
 @import url('stats-technology.css');
 @import url('stats-charging.css');
+@import url('stats-icons.css');
+@import url('stats-specs.css');
+@import url('stats-commercial.css');
 
 /* stats — lifted from the live stat band (bp-1440 / bp-360): 4 columns 270px / 40px gap at >= 1200,
    bottom-aligned, 1px #262626 rule 8px under the label; < 800 stacked with 20px gaps, last without rule. */

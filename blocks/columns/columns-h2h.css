@@ -1,0 +1,102 @@
+/* columns h2h — "can't be beat" image | text rows (band R2; prototype parts-electric-silverado-ev-vs-rivian-r1t/20-feat).
+   Live 1440: image 8/12 (787×393) · text 4/12 (373) with 40px gutter; text offset 59px (towing: 109px) from the image top.
+   < 800: image then text, 18px title gap, 18/25.2 body. */
+.columns.h2h {
+  padding: 0 var(--inset);
+}
+
+.columns.h2h.towing {
+  margin-top: 87px;
+}
+
+.columns.h2h > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.columns.h2h img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns.h2h :is(h3, p:not(:has(a, picture, img))) {
+  margin: 18px 0 0;
+  font: 500 24px/24px var(--f-sans);
+  letter-spacing: -0.48px;
+  color: var(--c-text);
+}
+
+.columns.h2h p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.h2h .columns-img-col p {
+  margin: 0;
+  line-height: 0;
+}
+
+/* "Learn More": live gb-link.icon-right — the arrow is inline ::after content after a space + 5px margin, 1px low */
+.columns.h2h p:has(a:not([href*="/content/experience-fragments/"])) {
+  display: flex;
+  min-height: 48px;
+}
+
+.columns.h2h a:not([href*="/content/experience-fragments/"]):any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+.columns.h2h a:not([href*="/content/experience-fragments/"]):any-link::after {
+  content: "";
+  position: relative;
+  top: 2px;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 800px) {
+  .columns.h2h.towing {
+    margin-top: 80px;
+  }
+
+  .columns.h2h > div {
+    display: grid;
+    grid-template-columns: calc((100% + 40px) * 8 / 12 - 40px) 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .columns.h2h > div > div {
+    flex: none;
+    padding-top: 59px;
+  }
+
+  .columns.h2h.towing > div > div:not(.columns-img-col) {
+    padding-top: 109px;
+  }
+
+  .columns.h2h > div > .columns-img-col {
+    padding-top: 0;
+  }
+
+  .columns.h2h :is(h3, p:not(:has(a, picture, img))) {
+    margin-top: 0;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .columns.h2h p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

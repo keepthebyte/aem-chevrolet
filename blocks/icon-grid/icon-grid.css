@@ -1,3 +1,5 @@
+@import url('icon-grid-safety.css');
+
 /* icon-grid — tailgate configurations; lifted from prototype css/parts/51-bed.css (.gates) */
 .icon-grid {
   display: grid;

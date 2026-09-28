@@ -1,0 +1,53 @@
+/* stats specs — 3-up spec items with a rule under the caption (band C2, commercial BED FUNCTIONALITY / MOBILE OFFICE;
+   prototype parts-commercial-silverado-ev/21-bed, 22-office). Authored: one row per item, cell 1 = value, cell 2 = caption.
+   Live 1440: lede → value line 48 (20 + 28 item pad), value 20/28 700 #000, caption 12/16.8, 10px then 1px #222 rule;
+   360: stacked, 28 apart. Modifier `bottom` (mobile office): bottom-aligned, 40 above, 8px then 1px #262626; 360: 20 apart. */
+.stats.specs.block {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 40px;
+  align-items: start;
+  padding: 20px var(--inset) 0;
+}
+
+.stats.specs.block .stats-item {
+  padding: 28px 0 10px;
+  border-bottom: 1px solid #222;
+}
+
+.stats.specs.block .stat-value p {
+  margin: 0;
+  font: 700 20px/28px var(--f-sans);
+  letter-spacing: normal;
+  color: #000;
+}
+
+.stats.specs.block .stat-label p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.stats.specs.bottom.block {
+  align-items: end;
+  padding-top: 40px;
+}
+
+.stats.specs.bottom.block .stats-item {
+  padding: 0 0 8px;
+  border-bottom-color: #262626;
+}
+
+@media (width < 800px) {
+  .stats.specs.block {
+    grid-template-columns: 1fr;
+  }
+
+  .stats.specs.block .stat-value p {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .stats.specs.bottom.block .stats-item {
+    padding-top: 20px;
+  }
+}

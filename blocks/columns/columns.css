@@ -3,6 +3,9 @@
 @import url('columns-custom.css');
 @import url('columns-tailgate.css');
 @import url('columns-compare.css');
+@import url('columns-accessories.css');
+@import url('columns-services.css');
+@import url('columns-h2h.css');
 
 .columns > div {
   display: flex;

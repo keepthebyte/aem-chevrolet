@@ -1,0 +1,23 @@
+/* explore variant `commercial` (C3) — prototype 33-explore.css: 70px top (60 <800), 33px image→CTA gap, 3:1 lockup at 360 */
+.explore.commercial {
+  padding-top: 70px;
+}
+
+.explore.commercial .explore-actions {
+  margin-top: 33px;
+}
+
+@media (width < 800px) {
+  .explore.commercial {
+    padding-top: 60px;
+  }
+
+  .explore.commercial .explore-media img {
+    height: auto;
+    aspect-ratio: 3 / 1;
+  }
+
+  .explore.commercial .explore-actions {
+    margin-top: 32px;
+  }
+}

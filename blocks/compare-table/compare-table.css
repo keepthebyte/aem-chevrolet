@@ -1,0 +1,134 @@
+/* compare-table — lifted from the live h2h table (rivian bp-1440 / bp-360, prototype 12-table.css):
+   head per half = year (14px, 2026 w600 / 2025 w500) + model h3 (700 32/32, -.64; <800 24/24, -.48);
+   bars #1a1a1a (p 500 16/22.4 white, pad 10); values 700 20/28 (<800 18/25.2) in a column = 50% of the half
+   (first spec row, left: 50% - 12 with a 12px left gutter), captions 500 12/16.8, verdict icon centered below
+   (check 30px mt 8, x 24px mt 10 / 9), 24px above and below each cell (<800: 25 / 23). */
+.compare-table {
+  margin-top: 55px;
+  padding: 0 var(--inset);
+  color: var(--c-text);
+  text-align: center;
+}
+
+.compare-table .compare-table-head,
+.compare-table .compare-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.compare-table .compare-table-head {
+  margin-bottom: 10px;
+}
+
+.compare-table .compare-table-year {
+  margin-bottom: 10px;
+}
+
+.compare-table .compare-table-year :is(h2, h3, p) {
+  font: 500 14px/17px var(--f-sans);
+  color: var(--c-text);
+}
+
+.compare-table .compare-table-side-1 .compare-table-year :is(h2, h3, p) {
+  font-weight: 600;
+}
+
+.compare-table .compare-table-model :is(h2, h3, p) {
+  font: 700 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+.compare-table .compare-table-label {
+  grid-column: 1 / -1;
+  padding: 10px 0;
+  background: #1a1a1a;
+}
+
+.compare-table .compare-table-label :is(p, h2, h3) {
+  font: 500 16px/22.4px var(--f-sans);
+  color: #fff;
+}
+
+.compare-table .compare-table-row .compare-table-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.compare-table .compare-table-row .compare-table-value,
+.compare-table .compare-table-row .compare-table-caption {
+  width: 50%;
+}
+
+.compare-table .compare-table-row-1 .compare-table-side-1 .compare-table-value,
+.compare-table .compare-table-row-1 .compare-table-side-1 .compare-table-caption {
+  width: calc(50% - 12px);
+  margin-left: 12px;
+}
+
+.compare-table .compare-table-value :is(h2, h3, p) {
+  font: 700 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+.compare-table .compare-table-caption :is(h2, h3, p) {
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.compare-table .compare-table-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.compare-table .compare-table-icon img {
+  width: 24px;
+  height: 24px;
+  margin-top: 10px;
+}
+
+.compare-table .compare-table-side-1 .compare-table-icon img {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+}
+
+@media (width < 800px) {
+  .compare-table {
+    margin-top: 44px;
+  }
+
+  .compare-table .compare-table-year {
+    margin-bottom: 6px;
+  }
+
+  .compare-table .compare-table-model :is(h2, h3, p) {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.48px;
+  }
+
+  .compare-table .compare-table-row .compare-table-side {
+    padding: 25px 0 23px;
+  }
+
+  .compare-table .compare-table-row .compare-table-value,
+  .compare-table .compare-table-row .compare-table-caption,
+  .compare-table .compare-table-row-1 .compare-table-side-1 .compare-table-value,
+  .compare-table .compare-table-row-1 .compare-table-side-1 .compare-table-caption {
+    align-self: stretch;
+    width: auto;
+    margin: 0 12px;
+  }
+
+  .compare-table .compare-table-value :is(h2, h3, p) {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .compare-table .compare-table-icon img {
+    margin-top: 9px;
+  }
+}

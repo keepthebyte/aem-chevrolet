@@ -1,3 +1,5 @@
+@import url('explore-commercial.css');
+
 /* explore — lifted from prototype css/parts/55-explore.css */
 .explore {
   padding: 141px var(--inset) 0;

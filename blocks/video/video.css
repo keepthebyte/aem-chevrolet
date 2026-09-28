@@ -1,4 +1,5 @@
 @import url('video-bed.css');
+@import url('video-h2h.css');
 
 /* video — values lifted from the live Brightcove row (bp-1440 / bp-360) */
 .video .video-frame {

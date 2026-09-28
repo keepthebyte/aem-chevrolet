@@ -1,0 +1,66 @@
+/* charging-options commercial (C1, /commercial/silverado-ev) — same content model as charging-options.
+   Live (commercial-bp-1440/360): 40px icons flush on the title, title 20/28 (18/25.2 < 800), text 12/16.8,
+   arrow link 19px under the text, store badges centred 39px under it (146x43, 19px gap; 138x41 / 20px / 40px < 800);
+   < 800 one column, 26px row gap, text inset 8px inside the gutter. */
+.charging-options.commercial .option-icon img {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.charging-options.commercial .option-text p {
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+.charging-options.commercial .option-link {
+  margin-top: 19px;
+}
+
+.charging-options.commercial .option-badges {
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0 0;
+}
+
+.charging-options.commercial .option-badges p {
+  flex: 0 1 138px;
+  min-width: 0;
+}
+
+/* badges shrink with their aspect kept when the column is narrower (live 800: 70x21, 1000: 98x29) */
+.charging-options.commercial .option-badges img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 138 / 41;
+}
+
+@media (width < 800px) {
+  .charging-options.commercial {
+    gap: 26px;
+    padding-inline: calc(var(--inset, 24px) + 8px);
+  }
+}
+
+@media (width >= 800px) {
+  .charging-options.commercial .option-icon img {
+    margin-bottom: 0;
+  }
+
+  .charging-options.commercial .option-link {
+    margin-top: 19px;
+  }
+
+  .charging-options.commercial .option-badges {
+    gap: 19px;
+    margin: 39px 0 0;
+  }
+
+  .charging-options.commercial .option-badges p {
+    flex-basis: 146px;
+  }
+
+  .charging-options.commercial .option-badges img {
+    aspect-ratio: 146 / 43;
+  }
+}

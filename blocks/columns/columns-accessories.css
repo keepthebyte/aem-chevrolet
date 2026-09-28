@@ -1,0 +1,111 @@
+/* columns variant `accessories` (C3, commercial) — prototype 31-accessories.css: image 477×238 | text (x637),
+   eyebrow 22px below the image top, arrow link right-aligned 20px in from the column edge; stacked <800 */
+.columns.accessories {
+  margin-top: 79px;
+  padding: 0 var(--inset);
+}
+
+.columns.accessories > div {
+  display: grid;
+  grid-template-columns: 477px 1fr;
+  column-gap: 40px;
+  align-items: start;
+}
+
+.columns.accessories .columns-img-col img {
+  width: 477px;
+  height: 238px;
+  object-fit: cover;
+}
+
+.columns.accessories > div > div:not(.columns-img-col) {
+  padding-top: 22px;
+}
+
+.columns.accessories h2 {
+  margin: 0;
+  font: 900 16px/22.4px var(--f-black);
+  color: var(--c-text);
+}
+
+.columns.accessories h3 {
+  margin: 7.6px 0 0;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+}
+
+.columns.accessories p {
+  margin: 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.accessories .columns-img-col p {
+  margin: 0;
+  line-height: 0;
+}
+
+.columns.accessories p:has(a:only-child) {
+  margin-top: 34px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+.columns.accessories p:has(a:only-child) a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.columns.accessories p:has(a:only-child) a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 800px) and (width < 1200px) {
+  .columns.accessories > div {
+    grid-template-columns: 40% 1fr;
+  }
+
+  .columns.accessories .columns-img-col img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (width < 800px) {
+  .columns.accessories > div {
+    grid-template-columns: 1fr;
+  }
+
+  .columns.accessories .columns-img-col img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .columns.accessories > div > div:not(.columns-img-col) {
+    padding-top: 24px;
+  }
+
+  .columns.accessories h3 {
+    margin-top: 8.6px;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .columns.accessories p:has(a:only-child) {
+    margin-top: 32px;
+    padding-right: 0;
+    text-align: center;
+  }
+}

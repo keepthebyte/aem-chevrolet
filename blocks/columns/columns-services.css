@@ -1,0 +1,118 @@
+/* columns variant `services` (C3, commercial) — prototype 32-services.css: rows [45px icon | 900px text | arrow link],
+   vertically centred, 1px #262626 rule 42px under each row (32 + 10 padding); stacked + centred <800 */
+.columns.services {
+  padding: 133px var(--inset) 0;
+}
+
+.columns.services > div {
+  display: grid;
+  grid-template-columns: 100px 900px 1fr;
+  gap: 0;
+  align-items: center;
+  padding-bottom: 42px;
+  border-bottom: 1px solid var(--c-text);
+}
+
+.columns.services > div + div {
+  margin-top: 42px;
+}
+
+.columns.services .columns-img-col img {
+  width: 45px;
+  height: 45px;
+}
+
+.columns.services p {
+  margin: 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.services :is(h3, p:has(+ p)) {
+  margin: 0;
+  font: 700 24px/28.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.services p + p {
+  margin-top: 7.2px;
+}
+
+.columns.services .columns-img-col p {
+  margin: 0;
+  line-height: 0;
+}
+
+.columns.services > div > div:not(.columns-img-col, :has(h3, p + p)) {
+  text-align: right;
+}
+
+.columns.services > div > div:not(.columns-img-col, :has(h3, p + p)) a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.columns.services > div > div:not(.columns-img-col, :has(h3, p + p)) a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 800px) and (width < 1200px) {
+  .columns.services > div {
+    grid-template-columns: 100px 1fr auto;
+  }
+}
+
+/* 1200–1439 (live 1200/1300): 12-col proportions — icon col 1/12, text 9/12, link column = rest */
+@media (width >= 1200px) and (width < 1440px) {
+  .columns.services > div {
+    grid-template-columns: calc(100% / 12) 75% 1fr;
+  }
+}
+
+@media (width < 800px) {
+  .columns.services {
+    padding-top: 91px;
+  }
+
+  .columns.services > div {
+    grid-template-columns: 1fr;
+    padding-bottom: 41px;
+    text-align: center;
+  }
+
+  .columns.services > div + div {
+    margin-top: 68px;
+    padding-bottom: 29px;
+  }
+
+  .columns.services .columns-img-col img {
+    margin: 0 auto;
+  }
+
+  .columns.services > div > div:has(h3, p + p) {
+    margin-top: 20px;
+  }
+
+  .columns.services :is(h3, p:has(+ p)) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .columns.services p + p {
+    margin-top: 8px;
+  }
+
+  .columns.services > div > div:not(.columns-img-col, :has(h3, p + p)) {
+    margin-top: 11px;
+    text-align: center;
+  }
+}

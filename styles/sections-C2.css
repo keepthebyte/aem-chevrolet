@@ -1,0 +1,50 @@
+/* sections-C2 — band C2 modifiers on D's feature-intro / feature-image (commercial capability, bed, mobile office).
+   Values lifted from the live page (commercial-bp-1440 / -360). Descendant selectors only (EW10). */
+
+/* cv-capability: capability image → eyebrow 64 (1440) / 40 (360); h3 → lede 10 (feature-intro default 8) */
+main .section.feature-intro.cv-capability .default-content-wrapper {
+  padding-top: 64px;
+}
+
+main .section.feature-intro.cv-capability .default-content-wrapper p:not(:has(img)) {
+  margin-top: 10px;
+}
+
+/* cv-bed-media: capability stats → image 84 / 76; caption overlaid 32px in from the image's bottom-left, 64% (56.4% <800) of its width */
+main .section.feature-image.cv-bed-media .default-content-wrapper {
+  position: relative;
+  padding-top: 84px;
+}
+
+main .section.feature-image.cv-bed-media .default-content-wrapper p:not(:has(img)) {
+  position: absolute;
+  left: calc(var(--inset) + 32px);
+  bottom: 32px;
+  width: calc((100% - 2 * var(--inset)) * 0.64);
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: #fff;
+}
+
+/* cv-office-media: bed spec rule → image 124 / 80 */
+main .section.feature-image.cv-office-media .default-content-wrapper {
+  padding-top: 124px;
+}
+
+@media (width < 800px) {
+  main .section.feature-intro.cv-capability .default-content-wrapper {
+    padding-top: 40px;
+  }
+
+  main .section.feature-image.cv-bed-media .default-content-wrapper {
+    padding-top: 76px;
+  }
+
+  main .section.feature-image.cv-bed-media .default-content-wrapper p:not(:has(img)) {
+    width: calc((100% - 2 * var(--inset)) * 0.564);
+  }
+
+  main .section.feature-image.cv-office-media .default-content-wrapper {
+    padding-top: 80px;
+  }
+}

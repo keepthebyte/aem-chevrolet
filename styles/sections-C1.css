@@ -1,0 +1,141 @@
+/* sections-C1 — band C1 default-content section styles (commercial hero-to-capability band, /commercial/silverado-ev).
+   Values lifted from the live page (commercial-bp-1440 / -360) via the prototype parts-commercial-silverado-ev/12–13.
+   Image pairs are authored desktop first, then the -sm crop; the live <picture> serves the -sm crop below 1200, so the
+   switch is at 1200 (relational selectors, no position). Descendant selectors only (EW10). */
+/* stylelint-disable no-descending-specificity -- rules are scoped to different sections/variants; no element matches two of them */
+
+/* ---- image pairs (cv-bleed, cv-range, cv-media) ---- */
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img) {
+  line-height: 0;
+}
+
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img):has(~ p img) {
+  display: none;
+}
+
+@media (width >= 1200px) {
+  main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img):has(~ p img) {
+    display: block;
+  }
+
+  main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img) ~ p:has(img) {
+    display: none;
+  }
+}
+
+/* cv-bleed: full-bleed image, 112px under the key-stat rules (32 < 800) */
+main .section.cv-bleed .default-content-wrapper {
+  padding: 112px 0 0;
+}
+
+/* cv-range: modifier on D's feature-intro — eyebrow 60px under the bleed image (40 < 800), h3 +9, lede +7 (+8 < 800),
+   then the inset image pair 72px down (79 < 800) */
+main .section.feature-intro.cv-range .default-content-wrapper {
+  padding-top: 60px;
+}
+
+main .section.feature-intro.cv-range .default-content-wrapper h3 {
+  margin-top: 9px;
+}
+
+main .section.feature-intro.cv-range .default-content-wrapper p:not(:has(img)) {
+  margin-top: 7px;
+}
+
+main .section.cv-range .default-content-wrapper p:has(img) {
+  margin-top: 72px;
+}
+
+/* cv-charge: eyebrow h2 + title p (40/40) + lede p (20/28) beside `stats charging commercial` (683 | 477, 40 gap) */
+main .section.cv-charge {
+  margin-top: 48px;
+  color: var(--c-text);
+}
+
+main .section.cv-charge .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/1.4 var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.cv-charge .default-content-wrapper p {
+  margin: 0;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+main .section.cv-charge .default-content-wrapper h2 + p {
+  margin-top: 8px;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+}
+
+/* cv-ways: the charging-options section, 99px under the charging stats (51 < 800) */
+main .section.charging-options-container.cv-ways {
+  margin-top: 51px;
+}
+
+/* cv-media: inset image pair, 127px under the store badges (46 < 800) */
+main .section.cv-media .default-content-wrapper {
+  padding-top: 46px;
+}
+
+@media (width < 800px) {
+  main .section.cv-bleed .default-content-wrapper {
+    padding-top: 34px;
+  }
+
+  main .section.feature-intro.cv-range .default-content-wrapper {
+    padding-top: 40px;
+  }
+
+  main .section.feature-intro.cv-range .default-content-wrapper p:not(:has(img)) {
+    margin-top: 8px;
+  }
+
+  main .section.cv-range .default-content-wrapper p:has(img) {
+    margin-top: 79px;
+  }
+
+  main .section.cv-charge {
+    margin-top: 40px;
+  }
+}
+
+@media (width >= 800px) {
+  main .section.cv-charge {
+    display: grid;
+    grid-template-columns: minmax(0, 683fr) minmax(0, 477fr);
+    column-gap: 40px;
+    align-items: start;
+    padding-inline: var(--inset, 24px);
+  }
+
+  main .section.cv-charge .default-content-wrapper,
+  main .section.cv-charge .stats {
+    padding-inline: 0;
+  }
+
+  main .section.cv-charge .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.cv-charge .default-content-wrapper h2 + p {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.charging-options-container.cv-ways {
+    margin-top: 99px;
+  }
+
+  main .section.cv-media .default-content-wrapper {
+    padding-top: 127px;
+  }
+}

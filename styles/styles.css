@@ -247,7 +247,7 @@ main a[href*="/content/experience-fragments/"]:any-link {
 
 /* stylelint-disable no-descending-specificity -- band section styles are scoped per section style; edit-mode repaint order is prescribed */
 
-/* sections-A — default-content section styles authored by band A (scoped main .section.<style>, descendant selectors only) */
+/* sections-A — default-content section styles authored by band A (scoped main .section.\3c style>, descendant selectors only) */
 
 /* statement — centered display headline (gb-headline2-black): 180px under the calculator (161px < 800) */
 main .section.statement {
@@ -514,6 +514,266 @@ main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(p
 
   main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper img {
     aspect-ratio: 2 / 1;
+  }
+}
+
+/* sections-C1 — band C1 default-content section styles (commercial hero-to-capability band, /commercial/silverado-ev).
+   Values lifted from the live page (commercial-bp-1440 / -360) via the prototype parts-commercial-silverado-ev/12–13.
+   Image pairs are authored desktop first, then the -sm crop; the live <picture> serves the -sm crop below 1200, so the
+   switch is at 1200 (relational selectors, no position). Descendant selectors only (EW10). */
+
+/* ---- image pairs (cv-bleed, cv-range, cv-media) ---- */
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img) {
+  line-height: 0;
+}
+
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img):has(~ p img) {
+  display: none;
+}
+
+@media (width >= 1200px) {
+  main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img):has(~ p img) {
+    display: block;
+  }
+
+  main .section:is(.cv-bleed, .cv-range, .cv-media) .default-content-wrapper p:has(img) ~ p:has(img) {
+    display: none;
+  }
+}
+
+/* cv-bleed: full-bleed image, 112px under the key-stat rules (32 < 800) */
+main .section.cv-bleed .default-content-wrapper {
+  padding: 112px 0 0;
+}
+
+/* cv-range: modifier on D's feature-intro — eyebrow 60px under the bleed image (40 < 800), h3 +9, lede +7 (+8 < 800),
+   then the inset image pair 72px down (79 < 800) */
+main .section.feature-intro.cv-range .default-content-wrapper {
+  padding-top: 60px;
+}
+
+main .section.feature-intro.cv-range .default-content-wrapper h3 {
+  margin-top: 9px;
+}
+
+main .section.feature-intro.cv-range .default-content-wrapper p:not(:has(img)) {
+  margin-top: 7px;
+}
+
+main .section.cv-range .default-content-wrapper p:has(img) {
+  margin-top: 72px;
+}
+
+/* cv-charge: eyebrow h2 + title p (40/40) + lede p (20/28) beside `stats charging commercial` (683 | 477, 40 gap) */
+main .section.cv-charge {
+  margin-top: 48px;
+  color: var(--c-text);
+}
+
+main .section.cv-charge .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/1.4 var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.cv-charge .default-content-wrapper p {
+  margin: 0;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+main .section.cv-charge .default-content-wrapper h2 + p {
+  margin-top: 8px;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+}
+
+/* cv-ways: the charging-options section, 99px under the charging stats (51 < 800) */
+main .section.charging-options-container.cv-ways {
+  margin-top: 51px;
+}
+
+/* cv-media: inset image pair, 127px under the store badges (46 < 800) */
+main .section.cv-media .default-content-wrapper {
+  padding-top: 46px;
+}
+
+@media (width < 800px) {
+  main .section.cv-bleed .default-content-wrapper {
+    padding-top: 34px;
+  }
+
+  main .section.feature-intro.cv-range .default-content-wrapper {
+    padding-top: 40px;
+  }
+
+  main .section.feature-intro.cv-range .default-content-wrapper p:not(:has(img)) {
+    margin-top: 8px;
+  }
+
+  main .section.cv-range .default-content-wrapper p:has(img) {
+    margin-top: 79px;
+  }
+
+  main .section.cv-charge {
+    margin-top: 40px;
+  }
+}
+
+@media (width >= 800px) {
+  main .section.cv-charge {
+    display: grid;
+    grid-template-columns: minmax(0, 683fr) minmax(0, 477fr);
+    column-gap: 40px;
+    align-items: start;
+    padding-inline: var(--inset, 24px);
+  }
+
+  main .section.cv-charge .default-content-wrapper,
+  main .section.cv-charge .stats {
+    padding-inline: 0;
+  }
+
+  main .section.cv-charge .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.cv-charge .default-content-wrapper h2 + p {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.charging-options-container.cv-ways {
+    margin-top: 99px;
+  }
+
+  main .section.cv-media .default-content-wrapper {
+    padding-top: 127px;
+  }
+}
+
+/* sections-C2 — band C2 modifiers on D's feature-intro / feature-image (commercial capability, bed, mobile office).
+   Values lifted from the live page (commercial-bp-1440 / -360). Descendant selectors only (EW10). */
+
+/* cv-capability: capability image → eyebrow 64 (1440) / 40 (360); h3 → lede 10 (feature-intro default 8) */
+main .section.feature-intro.cv-capability .default-content-wrapper {
+  padding-top: 64px;
+}
+
+main .section.feature-intro.cv-capability .default-content-wrapper p:not(:has(img)) {
+  margin-top: 10px;
+}
+
+/* cv-bed-media: capability stats → image 84 / 76; caption overlaid 32px in from the image's bottom-left, 64% (56.4% <800) of its width */
+main .section.feature-image.cv-bed-media .default-content-wrapper {
+  position: relative;
+  padding-top: 84px;
+}
+
+main .section.feature-image.cv-bed-media .default-content-wrapper p:not(:has(img)) {
+  position: absolute;
+  left: calc(var(--inset) + 32px);
+  bottom: 32px;
+  width: calc((100% - 2 * var(--inset)) * 0.64);
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: #fff;
+}
+
+/* cv-office-media: bed spec rule → image 124 / 80 */
+main .section.feature-image.cv-office-media .default-content-wrapper {
+  padding-top: 124px;
+}
+
+@media (width < 800px) {
+  main .section.feature-intro.cv-capability .default-content-wrapper {
+    padding-top: 40px;
+  }
+
+  main .section.feature-image.cv-bed-media .default-content-wrapper {
+    padding-top: 76px;
+  }
+
+  main .section.feature-image.cv-bed-media .default-content-wrapper p:not(:has(img)) {
+    width: calc((100% - 2 * var(--inset)) * 0.564);
+  }
+
+  main .section.feature-image.cv-office-media .default-content-wrapper {
+    padding-top: 80px;
+  }
+}
+
+/* sections-C3.css — band C3 section-style modifiers (commercial: safety, recall notice).
+   Lifted from stardust/prototypes/css/parts-commercial-silverado-ev/30-safety.css, 35-recall.css. Descendant selectors only (EW10). */
+
+/* cv-safety (with D's feature-intro): 180px top (80 <800); note 96px under the icon-grid, centred arrow link 32px below */
+main .section.feature-intro.cv-safety {
+  padding-top: 180px;
+}
+
+main .section.feature-intro.cv-safety .default-content-wrapper {
+  padding-top: 0;
+}
+
+main .section.feature-intro.cv-safety .default-content-wrapper h3 {
+  margin-top: 8.6px;
+}
+
+main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper p:not(:has(a)) {
+  margin: 96px 0 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper p:has(a) {
+  margin: 32px 0 0;
+  text-align: center;
+}
+
+main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+/* cv-recall (with E's recall-note): 98px under the shopping tools at every width */
+main .section.recall-note.cv-recall {
+  padding-top: 98px;
+}
+
+@media (width < 800px) {
+  main .section.feature-intro.cv-safety {
+    padding-top: 80px;
+  }
+
+  main .section.feature-intro.cv-safety .default-content-wrapper h3 {
+    margin-top: 7.6px;
+  }
+
+  main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper p:not(:has(a)) {
+    margin-top: 72px;
+  }
+
+  main .section.cv-safety .icon-grid-wrapper ~ .default-content-wrapper p:has(a) {
+    margin-top: 26px;
   }
 }
 
@@ -903,6 +1163,338 @@ main .section.recall-note .default-content-wrapper a:any-link {
 @media (width >= 1200px) and (width < 1440px) {
   main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
     grid-template-columns: 68fr 32fr;
+  }
+}
+
+/* sections-R1 — `compare-section`: centered h2 (gb-headline3) + h3 lede (gb-headline6, 500) above the compare-table block,
+   CTA pair below it (Vehicle Details 270px / Request a Test Drive 290px, right-aligned at the inset, gap 28, 40px under the table;
+   < 800: stacked 280px centered, gap 16, 32px under the table). Lifted from rivian bp-1440 / bp-360. */
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) {
+  padding-top: 60px;
+  text-align: center;
+}
+
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h2 {
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+}
+
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+  margin-top: 20px;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.primary {
+  width: 270px;
+}
+
+main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.secondary {
+  width: 290px;
+}
+
+@media (width < 800px) {
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) {
+    padding-top: 56px;
+  }
+
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h2 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.primary,
+  main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper a.secondary {
+    width: 280px;
+  }
+}
+
+/* sections-R2 — band R2 default-content sections on /electric/silverado-ev-vs-rivian-r1t
+   (h2h-feature, h2h-video, h2h-looks, h2h-wait). Values from prototype parts-electric-silverado-ev-vs-rivian-r1t/20–22
+   (live bp 1440 / 360). Descendant selectors only (EW10); child combinators only on generated wrappers. */
+
+/* h2h-feature: centered h2 + h2 sub, then the columns h2h row */
+main .section.h2h-feature .default-content-wrapper {
+  padding-top: 80px;
+  text-align: center;
+}
+
+main .section.h2h-feature .default-content-wrapper h2 {
+  margin: 0;
+  font: 500 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+main .section.h2h-feature .default-content-wrapper h2 ~ h2 {
+  font-size: 18px;
+  line-height: 25.2px;
+  letter-spacing: normal;
+}
+
+main .section.h2h-feature .columns-wrapper {
+  margin-top: 20px;
+}
+
+/* h2h-video: video h2h block + text (video on top < 800; text 5/12 left · video 7/12 right >= 800) */
+main > .section.h2h-video {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 87px var(--inset) 0;
+}
+
+main > .section.h2h-video > .default-content-wrapper {
+  padding: 0;
+}
+
+main .section.h2h-video .default-content-wrapper :is(h3, p:not(:has(a))) {
+  margin: 28px 0 0;
+  font: 500 24px/24px var(--f-sans);
+  letter-spacing: -0.48px;
+  color: var(--c-text);
+}
+
+main .section.h2h-video .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.h2h-video .default-content-wrapper p:has(a:not([href*="/content/experience-fragments/"])) {
+  display: flex;
+  min-height: 48px;
+}
+
+main .section.h2h-video .default-content-wrapper a:not([href*="/content/experience-fragments/"]):any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+main .section.h2h-video .default-content-wrapper a:not([href*="/content/experience-fragments/"]):any-link::after {
+  content: "";
+  position: relative;
+  top: 2px;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+/* h2h-looks: h2 over the carousel gallery h2h, More Photos CTA under it */
+main .section.h2h-looks .default-content-wrapper h2 {
+  margin: 0;
+  padding-top: 88px;
+  font: 500 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+}
+
+/* the CTA's href is an experience fragment: undo the disclosure-link paint (foundation) — it is a secondary button */
+main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper a.button:any-link {
+  width: 200px;
+  font: 600 16px/20px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+/* h2h-wait: full-bleed image hero — h2, lede and CTA stacked over the image (first image = desktop, second = mobile crop) */
+main .section.h2h-wait {
+  margin-top: 80px;
+}
+
+main > .section.h2h-wait > .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 32px auto auto auto 1fr;
+  justify-items: center;
+  padding: 0;
+  text-align: center;
+}
+
+main .section.h2h-wait .default-content-wrapper p:has(picture, img) {
+  grid-area: 1 / 1 / -1 / -1;
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+main .section.h2h-wait .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+  display: none;
+}
+
+main .section.h2h-wait .default-content-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+main .section.h2h-wait .default-content-wrapper h2 {
+  z-index: 1;
+  grid-area: 2 / 1;
+  margin: 0 var(--inset);
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: #fff;
+}
+
+main .section.h2h-wait .default-content-wrapper p:not(:has(picture, img, a)) {
+  z-index: 1;
+  grid-area: 3 / 1;
+  margin: 0 var(--inset);
+  font: 500 18px/25.2px var(--f-sans);
+  color: #fff;
+}
+
+main .section.h2h-wait .default-content-wrapper p:has(a) {
+  z-index: 1;
+  grid-area: 4 / 1;
+  margin: 32px 0 0;
+}
+
+/* live: primary .invert button, width 100% of its column (col-sm-8 → 168px @360, col-md-4 → 293px @1440) */
+main .section.h2h-wait .default-content-wrapper a.button:any-link {
+  width: 168px;
+  background: #fff;
+  color: var(--c-text);
+  transition: background 0.5s cubic-bezier(0, 1, 0.5, 1);
+}
+
+main .section.h2h-wait .default-content-wrapper a.button:any-link:hover {
+  background: #e6e6e6;
+}
+
+@media (width >= 800px) {
+  main .section.h2h-feature .default-content-wrapper h2 {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.h2h-feature .default-content-wrapper h2 ~ h2 {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: normal;
+  }
+
+  main .section.h2h-feature .columns-wrapper {
+    margin-top: 40px;
+  }
+
+  main > .section.h2h-video {
+    grid-template-columns: calc((100% + 40px) * 5 / 12 - 40px) 1fr;
+    column-gap: 40px;
+    align-items: start;
+    padding-top: 80px;
+  }
+
+  main > .section.h2h-video > .default-content-wrapper {
+    grid-area: 1 / 1;
+    padding-top: 46px;
+  }
+
+  main > .section.h2h-video > .video-wrapper {
+    grid-area: 1 / 2;
+  }
+
+  main .section.h2h-video .default-content-wrapper :is(h3, p:not(:has(a))) {
+    margin-top: 0;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  main .section.h2h-video .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.h2h-looks .default-content-wrapper h2 {
+    padding-top: 80px;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper {
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper p {
+    margin-right: -8px;
+  }
+
+  main .section.h2h-looks .carousel-wrapper ~ .default-content-wrapper a.button:any-link {
+    width: 298px;
+  }
+
+  main .section.h2h-wait .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+    display: block;
+  }
+
+  main .section.h2h-wait .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+    display: none;
+  }
+
+  main .section.h2h-wait .default-content-wrapper h2 {
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -0.96px;
+  }
+
+  /* the source breaks the lede after "Silverado EV," with a <br> — modeled as a measure, never authored (#112) */
+  main .section.h2h-wait .default-content-wrapper p:not(:has(picture, img, a)) {
+    max-width: 712px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.h2h-wait .default-content-wrapper a.button:any-link {
+    width: calc((100vw - 128px) * 0.25);
+  }
+}
+
+@media (width >= 1200px) {
+  main .section.h2h-wait .default-content-wrapper a.button:any-link {
+    width: 293px;
   }
 }
 

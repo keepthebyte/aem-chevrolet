@@ -1,0 +1,31 @@
+/* hero commercial (C1, /commercial/silverado-ev) — same content model and masthead offsets as hero.css.
+   Live (commercial-bp-1440/360 + measure 1200): the stage keeps its 5:2 aspect >= 800 (1200→480, 1440→576, 2560→1024)
+   and the price line + CTAs ride the stage bottom (price 34px up, CTAs 20px up); CTAs 284 / 234 wide.
+   < 800: CTAs stack 10px under the stage with a 26px gap. */
+@media (width >= 800px) {
+  .hero.commercial .hero-stage {
+    height: auto;
+    aspect-ratio: 5 / 2;
+  }
+
+  .hero.commercial .hero-price {
+    top: auto;
+    bottom: 34px;
+  }
+
+  .hero.commercial .hero-actions {
+    top: auto;
+    bottom: 20px;
+  }
+
+  .hero.commercial .hero-actions a.button.primary {
+    width: 234px;
+  }
+}
+
+@media (width < 800px) {
+  .hero.commercial .hero-actions {
+    gap: 26px;
+    padding-top: 10px;
+  }
+}

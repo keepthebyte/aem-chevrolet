@@ -4,6 +4,7 @@
 @import url('carousel-stars.css');
 @import url('carousel-gallery.css');
 @import url('carousel-videos.css');
+@import url('carousel-h2h.css');
 
 /* carousel — mechanics only (content model: carousel.js JSDoc / stardust/eds-conversion-log.md).
    Variants own insets, slide sizes, cell layout and type. */
