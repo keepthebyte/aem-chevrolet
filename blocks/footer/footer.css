@@ -73,7 +73,7 @@ footer .footer-cta a.button.secondary {
   color: var(--c-blue);
 }
 
-footer .footer-cta .footer-search {
+footer .footer-cta a.footer-search:any-link {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,7 +140,7 @@ footer .footer-prefs a:any-link {
   text-decoration: underline;
 }
 
-footer .footer-prefs img {
+footer .footer-prefs picture img {
   width: 15px;
   height: 15px;
 }
@@ -196,7 +196,7 @@ footer .footer-prefs .icon {
     width: 160px;
   }
 
-  footer .footer-cta .footer-search {
+  footer .footer-cta a.footer-search:any-link {
     flex-direction: row;
     gap: 8px;
     height: 48px;
