@@ -148,6 +148,7 @@ footer .footer-prefs img {
 footer .footer-prefs .icon {
   width: 25px;
   height: 25px;
+  margin-right: -2px;
 }
 
 @media (width >= 800px) {
@@ -236,8 +237,12 @@ footer .footer-prefs .icon {
   footer .footer-prefs .default-content-wrapper {
     flex-direction: row;
     align-items: center;
-    gap: 26px;
+    gap: 92px;
     margin: 0;
+  }
+
+  footer .footer-prefs .icon {
+    margin-right: 5px;
   }
 }
 
