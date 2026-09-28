@@ -1,0 +1,53 @@
+/* icon-grid — tailgate configurations; lifted from prototype css/parts/51-bed.css (.gates) */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  padding: 0 var(--inset);
+  text-align: center;
+}
+
+.icon-grid .icon-grid-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.icon-grid .icon-grid-icon img {
+  width: 31px;
+  height: 45px;
+  margin: 0 auto;
+}
+
+.icon-grid .icon-grid-title :is(p, h3) {
+  margin: 0;
+  font: 700 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+.icon-grid .icon-grid-text p {
+  margin: 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+@media (width < 800px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+    margin-top: 61px;
+  }
+
+  .icon-grid .icon-grid-icon img {
+    width: 26px;
+  }
+
+  .icon-grid .icon-grid-title :is(p, h3) {
+    height: 25px;
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .icon-grid .icon-grid-text p {
+    height: 39px;
+  }
+}

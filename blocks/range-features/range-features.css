@@ -1,0 +1,59 @@
+/* range-features — values from prototypes/css/parts/20-band-b.css (.range__feats; live bp-1440 y5332 / bp-360 y6343) */
+.range-features {
+  padding: 0 var(--inset);
+}
+
+.range-features .range-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  margin: 60px 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.range-features .range-feature-icon {
+  line-height: 0;
+}
+
+.range-features .range-feature-icon p {
+  margin: 0;
+}
+
+.range-features .range-feature-icon img {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 20px;
+}
+
+.range-features .range-feature[data-item="2"] .range-feature-icon img {
+  width: 45px;
+  height: 45px;
+}
+
+.range-features .range-feature-text p {
+  margin: 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+.range-features .range-feature-text p:has(strong) {
+  font: 700 20px/28px var(--f-sans);
+}
+
+.range-features .range-feature-text strong {
+  font-weight: inherit;
+}
+
+@media (width < 800px) {
+  .range-features .range-features-list {
+    grid-template-columns: 1fr;
+    row-gap: 52px;
+  }
+
+  .range-features .range-feature-text p:has(strong) {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+}

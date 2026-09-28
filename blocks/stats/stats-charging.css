@@ -1,0 +1,47 @@
+/* stats charging — 2 stacked stats beside the CHARGING intro (band C, prototype parts/30-charging .bc-charging__stats).
+   Authored: one row per stat, cell 1 = figure, cell 2 = caption. Decorated DOM (A): .stats-item > .stat-value + .stat-label.
+   `.block` raises specificity over stats.css base rules (imported before them). Section grid: styles/sections-C.css (.c-charging). */
+.stats.charging.block {
+  display: block;
+  margin-top: 48px;
+  padding: 0 var(--inset, 24px);
+  color: var(--c-text);
+}
+
+.stats.charging.block .stats-item {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.stats.charging.block .stats-item:where(:first-child) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--c-text);
+}
+
+.stats.charging.block .stats-item + .stats-item {
+  margin-top: 20px;
+}
+
+.stats.charging.block .stat-value :is(p, h2, h3, h4) {
+  margin: 0;
+  font: 700 18px/1.4 var(--f-sans);
+  letter-spacing: normal;
+  color: var(--c-text);
+}
+
+.stats.charging.block .stat-label p {
+  margin: 0;
+  font: 500 14px/1.4 var(--f-sans);
+  color: var(--c-text);
+}
+
+
+@media (width >= 800px) {
+  .stats.charging.block {
+    margin-top: 18px;
+  }
+
+  .stats.charging.block .stat-value :is(p, h2, h3, h4) {
+    font-size: 20px;
+  }
+}

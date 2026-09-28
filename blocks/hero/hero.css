@@ -1,37 +1,202 @@
+/* hero — lifted from the live masthead (bp-1440 / bp-360): stage 576px (>= 800) / 480px (< 800),
+   content at var(--inset); year y+100, title y+129, price y+522, CTAs y+508 right-aligned (284px each, 32px gap). */
 .hero-container .hero-wrapper {
-  max-width: unset;
+  max-width: none;
   padding: 0;
 }
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero .hero-stage {
+  position: relative;
+  height: 576px;
+  overflow: hidden;
+  color: #fff;
 }
 
-.hero picture {
+.hero .hero-media,
+.hero .hero-media > div,
+.hero .hero-media picture,
+.hero .hero-media img {
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+.hero .hero-media p {
+  margin: 0;
+  line-height: 0;
+}
+
+.hero .hero-media img {
+  max-width: none;
+  object-fit: cover;
+}
+
+.hero .hero-media-sm {
+  display: none;
+}
+
+.hero .hero-inner {
+  position: absolute;
+  inset: 0 var(--inset);
+}
+
+.hero .hero-year {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 500px;
+}
+
+.hero .hero-year::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 80px;
+  width: 17px;
+  height: 17px;
+  background: url("/icons/hero-year-chevron.svg") no-repeat center / contain;
+}
+
+.hero .hero-year :is(h1, h2, h3, p) {
+  margin: 0;
+  font: 700 24px/28.8px var(--f-sans);
+  color: inherit;
+}
+
+.hero .hero-years {
+  display: none;
+}
+
+.hero .hero-title {
+  position: absolute;
+  top: 129px;
+  left: 0;
+}
+
+.hero .hero-title :is(h1, h2) {
+  margin: 0;
+  font: 900 64px/0.8 var(--f-black);
+  letter-spacing: 0;
+  color: #fff;
+}
+
+.hero .hero-price {
+  position: absolute;
+  top: 522px;
+  left: 0;
+  width: 600px;
+}
+
+.hero .hero-price p {
+  margin: 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: #fff;
+}
+
+.hero .hero-actions {
+  position: absolute;
+  top: 508px;
+  right: var(--inset);
+  display: flex;
+  gap: 32px;
+}
+
+.hero .hero-actions p {
+  margin: 0;
+}
+
+.hero .hero-actions a:any-link {
+  width: 284px;
+}
+
+/* on-dark CTAs (gb-*-button.invert) */
+.hero .hero-actions a.button.primary {
+  background: #fff;
+  color: var(--c-text);
+}
+
+.hero .hero-actions a.button.secondary {
+  border-color: #fff;
+  background: transparent;
+  color: #fff;
+}
+
+@media (width < 800px) {
+  .hero .hero-stage {
+    height: 480px;
+  }
+
+  .hero .hero-media-sm {
+    display: block;
+  }
+
+  .hero .hero-media-lg {
+    display: none;
+  }
+
+  .hero .hero-media-single .hero-media-lg {
+    display: block;
+  }
+
+  .hero .hero-year {
+    top: 48px;
+    width: 260px;
+  }
+
+  .hero .hero-year::after {
+    left: 70px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .hero .hero-year :is(h1, h2, h3, p) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .hero .hero-title {
+    top: 72px;
+    width: 312px;
+  }
+
+  .hero .hero-title :is(h1, h2) {
+    font-size: 48px;
+  }
+
+  .hero .hero-price {
+    top: 441px;
+    width: auto;
+    right: 0;
+  }
+
+  .hero .hero-actions {
+    position: static;
+    display: grid;
+    gap: 20px;
+    padding: 26px calc(var(--inset) + 10px) 0;
+  }
+
+  .hero .hero-actions p:has(strong, .primary) {
+    order: -1;
+  }
+
+  .hero .hero-actions a:any-link {
+    display: flex;
+    width: 100%;
+  }
+
+  .hero .hero-actions a.button.primary {
+    background: var(--c-blue);
+    color: #fff;
+  }
+
+  .hero .hero-actions a.button.secondary {
+    border-color: var(--c-blue);
+    color: var(--c-blue);
   }
 }

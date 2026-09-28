@@ -1,0 +1,93 @@
+/* carousel stars — Stars & Steel image carousel + text beside it (band C, prototype parts/35-stars-steel).
+   The text is DEFAULT CONTENT in the same section (carousel content model). */
+main .section.carousel-container:has(.carousel.stars) {
+  margin-top: 151px;
+  padding-inline: var(--inset, 24px);
+  color: var(--c-text);
+}
+
+.carousel.stars {
+  --carousel-gap: 0;
+  --carousel-slide: 100%;
+}
+
+.carousel.stars .carousel-media img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.carousel.stars .carousel-nav {
+  margin-top: 24px;
+}
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper {
+  margin-top: 20px;
+  padding-inline: 0;
+}
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 16px/1.4 var(--f-sans);
+}
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(+ p) {
+  margin: 0;
+  font: 500 24px/1 var(--f-sans);
+  letter-spacing: -0.48px;
+}
+
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper ul {
+  margin: 9px 0 0;
+  padding-left: 18px;
+  font: 500 14px/19.6px var(--f-sans);
+}
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(a.button, em a) {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(a.button, em a) a {
+  width: 208px;
+}
+
+@media (width >= 800px) {
+  main .section.carousel-container:has(.carousel.stars) {
+    display: grid;
+    grid-template-columns: minmax(0, 683fr) minmax(0, 477fr);
+    column-gap: 40px;
+    align-items: start;
+    margin-top: 210px;
+  }
+
+  .carousel.stars .carousel-media img {
+    aspect-ratio: 683 / 512;
+  }
+
+  .carousel.stars .carousel-nav {
+    margin-top: 25px;
+  }
+
+  main .section.carousel-container:has(.carousel.stars) .default-content-wrapper {
+    margin-top: 152px;
+  }
+
+  main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(+ p) {
+    font-size: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  main .section.carousel-container:has(.carousel.stars) .default-content-wrapper ul {
+    margin-top: 10px;
+  }
+
+  main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(a.button, em a) {
+    justify-content: flex-end;
+  }
+
+  main .section.carousel-container:has(.carousel.stars) .default-content-wrapper p:has(a.button, em a) a {
+    width: 278px;
+  }
+}

@@ -1,0 +1,76 @@
+/* columns — variant `custom` (band D: Silverado EV Custom image + text split) */
+/* stylelint-disable no-descending-specificity -- rules are scoped to different sections/cells; no element matches two of them */
+.columns.custom {
+  padding: 80px var(--inset) 0;
+}
+
+.columns.custom > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.columns.custom p {
+  margin: 0;
+}
+
+.columns.custom .columns-img-col p {
+  line-height: 0;
+}
+
+.columns.custom img {
+  width: 100%;
+}
+
+.columns.custom h2 {
+  margin-top: 40px;
+  font: 900 16px/1.4 var(--f-black);
+  color: var(--c-text);
+}
+
+.columns.custom h3 {
+  margin-top: 8px;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+}
+
+.columns.custom h3 ~ p:not(:has(+ ul)) {
+  margin-top: 8px;
+  font: 500 16px/22.4px var(--f-sans);
+}
+
+.columns.custom p:has(+ ul) {
+  margin-top: 24px;
+  font: 500 12px/16.8px var(--f-sans);
+}
+
+.columns.custom ul {
+  margin-top: 32px;
+  padding-left: 18px;
+  font: 500 16px/22.4px var(--f-sans);
+}
+
+@media (width >= 800px) {
+  .columns.custom > div {
+    grid-template-columns: 787fr 373fr;
+    column-gap: 40px;
+  }
+
+  .columns.custom h2 {
+    margin-top: 0;
+  }
+
+  .columns.custom h3 {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  .columns.custom p:has(+ ul) {
+    margin-top: 25px;
+  }
+
+  .columns.custom ul {
+    margin-top: 15px;
+    padding-left: 17px;
+  }
+}

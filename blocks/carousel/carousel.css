@@ -1,0 +1,83 @@
+@import url('carousel-trims.css');
+@import url('carousel-quotes.css');
+@import url('carousel-cards.css');
+@import url('carousel-stars.css');
+@import url('carousel-gallery.css');
+@import url('carousel-videos.css');
+
+/* carousel — mechanics only (content model: carousel.js JSDoc / stardust/eds-conversion-log.md).
+   Variants own insets, slide sizes, cell layout and type. */
+.carousel {
+  --carousel-gap: 24px;
+  --carousel-slide: 100%;
+
+  position: relative;
+}
+
+.carousel .carousel-viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel .carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel .carousel-slides {
+  display: flex;
+  gap: var(--carousel-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel .carousel-slide {
+  flex: 0 0 var(--carousel-slide);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.carousel .carousel-media p {
+  margin: 0;
+  line-height: 0;
+}
+
+.carousel .carousel-media img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel .carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: var(--i-arrow-next) no-repeat center / 48px 48px;
+  cursor: pointer;
+}
+
+.carousel .carousel-prev {
+  transform: scaleX(-1);
+}
+
+.carousel .carousel-prev.is-disabled,
+.carousel .carousel-next.is-disabled {
+  background-image: var(--i-arrow-prev);
+  cursor: default;
+}
+
+.carousel .carousel-counter {
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}

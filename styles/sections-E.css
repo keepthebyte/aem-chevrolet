@@ -1,0 +1,179 @@
+/* sections-E.css — band E default-content sections (gallery → recall notice).
+   Lifted from stardust/prototypes/css/parts/50–55 (live bp-1440 / bp-360). Descendant selectors only (EW10). */
+/* stylelint-disable no-descending-specificity -- rules target different section styles; none overrides another */
+
+/* shared intro type: eyebrow h2 + title h3 (+ lede) */
+main .section:is(.gallery-intro, .bed-intro, .safety-intro, .faq-intro) .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/22.4px var(--f-black);
+  letter-spacing: 0;
+  color: var(--c-text);
+}
+
+main .section:is(.gallery-intro, .bed-intro, .safety-intro) .default-content-wrapper h3 {
+  margin: 9px 0 0;
+  font: 500 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+main .section:is(.bed-intro, .safety-intro) .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+/* gallery: intro above the carousel, "Full Gallery (21)" CTA below it */
+main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+  width: 256px;
+}
+
+/* bed functionality intro: 40px under the bed video, 18/25.2 lede (<800) */
+main .section.bed-intro {
+  padding-top: 40px;
+}
+
+main .section.bed-intro .default-content-wrapper p {
+  font-size: 18px;
+  line-height: 25.2px;
+}
+
+/* safety: intro, 3-column feature list, note; disclaimer + CTA below the video carousel */
+main .section.safety-intro {
+  padding-top: 100px;
+}
+
+main .section.safety-intro .default-content-wrapper ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.safety-intro .default-content-wrapper ul + p {
+  margin-top: 32px;
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+  margin-top: 32px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p:has(a) {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+  width: 200px;
+  min-height: 68px;
+}
+
+/* FAQ intro (eyebrow above the accordion) */
+main .section.faq-intro {
+  padding-top: 80px;
+}
+
+main .section.faq-intro .default-content-wrapper {
+  margin-bottom: 8px;
+}
+
+/* NHTSA recall notice */
+main .section.recall-note {
+  padding-top: 140px;
+  padding-bottom: 76px;
+}
+
+main .section.recall-note .default-content-wrapper p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.recall-note .default-content-wrapper a:any-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (width >= 800px) {
+  main .section:is(.gallery-intro, .bed-intro, .safety-intro) .default-content-wrapper h3 {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper {
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper p {
+    margin-right: -8px;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+    width: 329px;
+  }
+
+  main .section.bed-intro .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.safety-intro {
+    padding-top: 160px;
+  }
+
+  main .section.safety-intro .default-content-wrapper ul {
+    columns: 3;
+    column-gap: 57px;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p:has(a) {
+    margin: 0;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  main .section.faq-intro {
+    padding-top: 160px;
+  }
+
+  main .section.faq-intro .default-content-wrapper {
+    margin-bottom: 9px;
+  }
+
+  main .section.recall-note {
+    padding-top: 180px;
+  }
+}
+
+@media (width >= 1200px) {
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+    grid-template-columns: 787px 373px;
+  }
+}

@@ -1,0 +1,101 @@
+/* quick-links — lifted from the live tiles (bp-1440 / bp-360): icons 113px under the stat band,
+   4 columns 270px / 40px gap (>= 1200) with 32px inner indent; < 800 a 2×2 grid (168px / rest), 64px row gap. */
+.quick-links-container .quick-links-wrapper {
+  max-width: none;
+  padding: 113px var(--inset) 0;
+}
+
+.quick-links .quick-links-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quick-links .quick-links-tile {
+  display: block;
+  padding-left: 32px;
+  color: var(--c-text);
+  text-decoration: none;
+  overflow-wrap: normal;
+}
+
+.quick-links .quick-links-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.quick-links .quick-links-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.quick-links .quick-links-title {
+  margin-top: 16px;
+  width: 206px;
+}
+
+.quick-links .quick-links-title :is(h2, h3) {
+  margin: 0;
+  font: 500 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+.quick-links .quick-links-label {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin-top: 16px;
+}
+
+.quick-links .quick-links-label p {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+.quick-links .quick-links-label p::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 1200px) {
+  .quick-links .quick-links-list {
+    grid-template-columns: repeat(4, 270px);
+  }
+}
+
+@media (width < 800px) {
+  .quick-links-container .quick-links-wrapper {
+    padding-top: 120px;
+  }
+
+  .quick-links .quick-links-list {
+    grid-template-columns: 168px 1fr;
+    gap: 64px 0;
+    padding-left: 32px;
+  }
+
+  .quick-links .quick-links-tile {
+    padding-left: 0;
+  }
+
+  .quick-links .quick-links-title {
+    width: 80px;
+  }
+
+  .quick-links .quick-links-title :is(h2, h3) {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.48px;
+  }
+}

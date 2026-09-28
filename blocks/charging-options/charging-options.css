@@ -1,0 +1,116 @@
+/* charging-options — band C (prototype parts/30-charging .bc-ways). */
+main .section.charging-options-container {
+  margin-top: 60px;
+}
+
+.charging-options {
+  display: grid;
+  gap: 32px;
+  padding-inline: var(--inset, 24px);
+  text-align: center;
+  color: var(--c-text);
+}
+
+.charging-options .option-icon img {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 8px;
+}
+
+.charging-options .option-title :is(h2, h3, h4) {
+  margin: 0;
+  font: 700 18px/1.4 var(--f-sans);
+  color: var(--c-text);
+}
+
+.charging-options p {
+  margin: 0;
+  font: 500 14px/1.4 var(--f-sans);
+}
+
+.charging-options .option-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+
+.charging-options .option-link {
+  margin-top: 30px;
+}
+
+.charging-options .option-link a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  gap: 5px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.charging-options .option-link a::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  flex: none;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+.charging-options .option-badges {
+  display: flex;
+  gap: 4px;
+  margin: 30px 0 0 44px;
+}
+
+.charging-options .option-badges a {
+  display: block;
+  line-height: 0;
+}
+
+.charging-options .option-badges img {
+  width: 120px;
+  height: 36px;
+}
+
+.charging-options .option-badges .url {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (width >= 800px) {
+  main .section.charging-options-container {
+    margin-top: 77px;
+  }
+
+  .charging-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .charging-options .option-icon img {
+    margin-bottom: 20px;
+  }
+
+  .charging-options .option-title :is(h2, h3, h4) {
+    font-size: 20px;
+  }
+
+  .charging-options .option-link {
+    margin-top: 10px;
+  }
+
+  .charging-options .option-badges {
+    margin: 16px 0 0;
+    gap: 76px;
+  }
+
+  .charging-options .option-badges img {
+    width: 130px;
+    height: 39px;
+  }
+}

@@ -1,0 +1,82 @@
+/* explore — lifted from prototype css/parts/55-explore.css */
+.explore {
+  padding: 141px var(--inset) 0;
+}
+
+.explore .explore-heading :is(h2, h3) {
+  margin: 0;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+  text-align: center;
+}
+
+.explore .explore-media {
+  margin-top: 20px;
+}
+
+.explore .explore-media p {
+  margin: 0;
+  line-height: 0;
+}
+
+.explore .explore-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+}
+
+.explore .explore-media.has-mobile .explore-mobile {
+  display: none;
+}
+
+.explore .explore-actions {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.explore .explore-actions a:any-link {
+  width: 270px;
+}
+
+@media (width < 800px) {
+  .explore {
+    padding-top: 82px;
+  }
+
+  .explore .explore-heading :is(h2, h3) {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .explore .explore-media {
+    margin-top: 32px;
+  }
+
+  .explore .explore-media.has-mobile .explore-desktop {
+    display: none;
+  }
+
+  .explore .explore-media.has-mobile .explore-mobile {
+    display: block;
+  }
+
+  .explore .explore-media img {
+    width: 312px;
+    height: 156px;
+    aspect-ratio: auto;
+  }
+
+  .explore .explore-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .explore .explore-actions a:any-link {
+    width: 200px;
+  }
+}

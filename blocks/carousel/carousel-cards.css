@@ -1,0 +1,98 @@
+/* carousel cards — capability feature cards (band C, prototype parts/33-capability-cards .bc-cards). */
+main .section.carousel-container:has(.carousel.cards) {
+  margin-top: 65px; /* prototype 63 + the 2px the proto stat's inline line box adds */
+}
+
+.carousel.cards {
+  --carousel-gap: 24px;
+  --carousel-slide: 100%;
+
+  padding-inline: var(--inset, 24px);
+  color: var(--c-text);
+}
+
+.carousel.cards .carousel-media img {
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+.carousel.cards .carousel-slide:has(.carousel-text :is(h2, h3) + :is(h2, h3)) .carousel-media {
+  overflow: hidden;
+  border-radius: 15px;
+  background: #000;
+}
+
+.carousel.cards .carousel-text p {
+  margin: 8px 0 0;
+  font: 500 14px/1.4 var(--f-sans);
+}
+
+.carousel.cards .carousel-text :is(h2, h3) {
+  margin: 24px 0 0;
+  font: 700 18px/1.4 var(--f-sans);
+  color: var(--c-text);
+}
+
+/* video kicker ("Sidewinder :20"): the heading followed by the card title */
+.carousel.cards .carousel-text :is(h2, h3):has(+ :is(h2, h3)) {
+  margin: 10px 12px 0;
+  font: 600 16px/22.4px var(--f-sans);
+}
+
+
+.carousel.cards .carousel-nav {
+  gap: 0;
+  margin-top: 50px;
+}
+
+.carousel.cards .carousel-counter {
+  width: 24px;
+  text-align: center;
+}
+
+.carousel.cards .carousel-prev {
+  margin-right: 23px;
+}
+
+.carousel.cards .carousel-next {
+  margin-left: 27px;
+}
+
+@media (width >= 800px) {
+  main .section.carousel-container:has(.carousel.cards) {
+    margin-top: 80px;
+  }
+
+  .carousel.cards {
+    --carousel-gap: 40px;
+    --carousel-slide: calc((100% - 80px) / 3);
+  }
+
+  .carousel.cards .carousel-text :is(h2, h3) {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+
+  .carousel.cards .carousel-text :is(h2, h3) + :is(h2, h3) {
+    margin-top: 17px;
+  }
+
+  .carousel.cards .carousel-text :is(h2, h3):has(+ :is(h2, h3)) {
+    margin: 7px 0 0;
+    font-size: 16px;
+  }
+
+  .carousel.cards .carousel-nav {
+    gap: 20px;
+    margin-top: 43px;
+  }
+
+  .carousel.cards .carousel-counter {
+    display: none;
+  }
+
+  .carousel.cards .carousel-prev,
+  .carousel.cards .carousel-next {
+    margin: 0;
+  }
+}

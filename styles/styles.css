@@ -238,10 +238,668 @@ main > .section > .default-content-wrapper {
 
 /* SECTION-STYLES (default-content sections, one file per band — concatenated below by the assembler) */
 
+/* disclosure triggers — authored as links to the source's disclosure fragments (conversion log § Disclosure convention) */
+main a[href*="/content/experience-fragments/"]:any-link {
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+}
+
+/* stylelint-disable no-descending-specificity -- band section styles are scoped per section style; edit-mode repaint order is prescribed */
+
+/* sections-A — default-content section styles authored by band A (scoped main .section.<style>, descendant selectors only) */
+
+/* statement — centered display headline (gb-headline2-black): 180px under the calculator (161px < 800) */
+main .section.statement {
+  padding-top: 180px;
+}
+
+main .section.statement h2 {
+  margin: 0;
+  font: 900 40px/0.8 var(--f-black);
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--c-text);
+}
+
+@media (width >= 800px) {
+  main .section.statement h2 {
+    font-size: 48px;
+  }
+}
+
+@media (width < 800px) {
+  main .section.statement {
+    padding-top: 161px;
+  }
+}
+
+/* sections-B.css — default-content section styles for band B (trims head + CTA, range intro, range/charging media).
+   Values from stardust/prototypes/css/parts/20-band-b.css. Descendant selectors only (EW10). */
+
+/* trims: eyebrow above the carousel, Compare Models CTA below it */
+main .section.trims .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/22.4px var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.trims .default-content-wrapper p {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px 0 0;
+}
+
+main .section.trims .default-content-wrapper a.button {
+  width: 270px;
+}
+
+/* range-intro: eyebrow h2, heading h2, lede (range-features block follows in the same section) */
+main .section.range-intro .default-content-wrapper h2 {
+  margin: 40px 0 0;
+  font: 900 16px/22.4px var(--f-black);
+  letter-spacing: 0;
+  color: var(--c-text);
+}
+
+main .section.range-intro .default-content-wrapper h2 ~ h2 {
+  margin-top: 8px;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -.8px;
+}
+
+main .section.range-intro .default-content-wrapper p {
+  margin: 9px 0 0;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+/* range-media: desktop picture, then the <800 crop, then an optional caption (hidden <800, as on source) */
+main .section.range-media {
+  margin-top: 120px;
+}
+
+main .section.range-intro + .section.range-media {
+  margin-top: 140px;
+}
+
+main .section.range-media .default-content-wrapper p {
+  margin: 0;
+}
+
+main .section.range-media .default-content-wrapper p:not(:has(picture, img)) {
+  min-height: 39px;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.range-media .default-content-wrapper p:has(picture, img) {
+  line-height: 0;
+}
+
+main .section.range-media .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+  display: none;
+}
+
+main .section.range-media .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+}
 
 
+@media (width < 800px) {
+  main .section.trims .default-content-wrapper p {
+    justify-content: center;
+  }
 
-/* stylelint-disable no-descending-specificity -- prescribed edit-mode repaint order (deploy Step 3a) */
+  main .section.trims .default-content-wrapper a.button {
+    width: 200px;
+  }
+
+  main .section.range-intro .default-content-wrapper h2 ~ h2 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -.64px;
+  }
+
+  main .section.range-intro .default-content-wrapper p {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  main .section.range-intro + .section.range-media {
+    margin-top: 133px;
+  }
+
+  main .section.range-media .default-content-wrapper {
+    padding: 0;
+  }
+
+  main .section.range-media .default-content-wrapper p:not(:has(picture, img)) {
+    display: none;
+  }
+
+  main .section.range-media .default-content-wrapper p:has(picture, img) {
+    display: none;
+  }
+
+  main .section.range-media .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+    display: block;
+  }
+}
+
+/* sections-C.css — band C default-content section styles (combined with main's `intro` / `media`).
+   Modifiers: c-charging, c-capability, c-design (intro heads), c-boat, c-design-hero (art-directed images).
+   Geometry from stardust/prototypes/css/parts/30-band-c.css. Descendant selectors only (EW10). */
+
+/* ---- intro heads ---- */
+main .section.intro:is(.c-charging, .c-capability, .c-design) {
+  margin-top: 40px;
+  color: var(--c-text);
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper {
+  padding-inline: var(--inset, 24px);
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper :is(h2, h3) {
+  margin: 8px 0 0;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+/* eyebrow: the h2 that is followed by the title heading */
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper h2:has(+ :is(h2, h3)) {
+  margin: 0;
+  font: 900 16px/1.4 var(--f-black);
+  letter-spacing: normal;
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+main .section.intro.c-charging .default-content-wrapper p {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+@media (width >= 800px) {
+  main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper :is(h2, h3) {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper h2:has(+ :is(h2, h3)) {
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+
+  main .section.intro:is(.c-capability, .c-design) .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* CHARGING: intro | stats side by side */
+  main .section.intro.c-charging {
+    display: grid;
+    grid-template-columns: minmax(0, 683fr) minmax(0, 477fr);
+    column-gap: 40px;
+    align-items: start;
+    padding-inline: var(--inset, 24px);
+  }
+
+  main .section.intro.c-charging .default-content-wrapper,
+  main .section.intro.c-charging .stats {
+    padding-inline: 0;
+  }
+}
+
+/* ---- art-directed full-width images (desktop 2:1 + mobile 1:1 authored) ---- */
+main .section.media:is(.c-boat, .c-design-hero) {
+  margin-top: 80px;
+  color: var(--c-text);
+}
+
+main .section.media.c-design-hero {
+  margin-top: 82px;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper {
+  padding-inline: var(--inset, 24px);
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p {
+  margin: 0;
+  font: 500 14px/1.4 var(--f-sans);
+  min-height: 59px;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img) {
+  min-height: 0;
+  line-height: 0;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* first image = desktop rendition, second = mobile crop */
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+  display: none;
+}
+
+@media (width >= 800px) {
+  main .section.media:is(.c-boat, .c-design-hero) {
+    margin-top: 140px;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p {
+    min-height: 39px;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+    display: block;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+    display: none;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper img {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* sections-D — band D default-content sections (feature-image, feature-intro, trailboss, tech, super-cruise).
+   Values lifted from the live page (bp-1440 / bp-360). Descendant selectors only (EW10). */
+
+/* feature-image: full-width picture; desktop + mobile renditions authored, one shown per breakpoint
+   (the mobile crop is the 320x320 rendition — selected by its intrinsic size, not by position) */
+main .section.feature-image .default-content-wrapper {
+  padding-top: 80px;
+}
+
+main .section.feature-image .default-content-wrapper p {
+  line-height: 0;
+}
+
+main .section.feature-image .default-content-wrapper img {
+  width: 100%;
+}
+
+main .section.feature-image .default-content-wrapper p:has(img:not([width="320"])) {
+  display: none;
+}
+
+@media (width >= 800px) {
+  main .section.feature-image.gap-120 .default-content-wrapper {
+    padding-top: 120px;
+  }
+
+  main .section.feature-image.gap-140 .default-content-wrapper {
+    padding-top: 140px;
+  }
+
+  main .section.feature-image .default-content-wrapper p:has(img:not([width="320"])) {
+    display: block;
+  }
+
+  main .section.feature-image .default-content-wrapper p:has(img[width="320"]) {
+    display: none;
+  }
+}
+
+/* feature-intro: eyebrow (h2) + title (h3) + lede */
+main .section.feature-intro .default-content-wrapper {
+  padding-top: 40px;
+}
+
+main .section.feature-intro .default-content-wrapper h2 {
+  font: 900 16px/1.4 var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.feature-intro .default-content-wrapper h3 {
+  margin-top: 8px;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+}
+
+main .section.feature-intro .default-content-wrapper p:not(:has(img)) {
+  margin-top: 8px;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+@media (width >= 800px) {
+  main .section.feature-intro .default-content-wrapper h3 {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.feature-intro .default-content-wrapper p:not(:has(img)) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* trailboss: intro + "features" head (the h3 that heads the lists — selected relationally, no position) + 3 lists + image pair */
+main .section.trailboss .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+main .section.trailboss .default-content-wrapper h3:has(+ ul) {
+  margin-top: 30px;
+  letter-spacing: normal;
+  margin-bottom: 20px;
+  font: 700 18px/25.2px var(--f-sans);
+}
+
+main .section.trailboss .default-content-wrapper ul {
+  padding-left: 18px;
+  font: 500 12px/16.8px var(--f-sans);
+}
+
+main .section.trailboss .default-content-wrapper p:has(img) {
+  margin-top: 20px;
+  line-height: 0;
+}
+
+main .section.trailboss .default-content-wrapper img {
+  width: 100%;
+}
+
+@media (width >= 800px) {
+  main .section.trailboss .default-content-wrapper {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 40px;
+  }
+
+  main .section.trailboss .default-content-wrapper > * {
+    grid-column: 1 / -1;
+  }
+
+  main .section.trailboss .default-content-wrapper h3:has(+ ul) {
+    margin-bottom: 32px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.trailboss .default-content-wrapper ul {
+    grid-column: span 2;
+  }
+
+  main .section.trailboss .default-content-wrapper p:has(img) {
+    grid-column: span 3;
+    margin-top: 60px;
+  }
+}
+
+/* super-cruise: video block + text, side by side */
+main > .section.super-cruise {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 82px var(--inset) 80px;
+}
+
+main > .section.super-cruise > .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0 0;
+}
+
+main .section.super-cruise .default-content-wrapper h3 {
+  font: 700 18px/25.2px var(--f-sans);
+}
+
+main .section.super-cruise .default-content-wrapper p {
+  font: 500 16px/22.4px var(--f-sans);
+}
+
+main .section.super-cruise .default-content-wrapper p:not(:has(> a:only-child)) {
+  margin: 8px 0 20px;
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) {
+  display: flex;
+  justify-content: center;
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) > a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 800px) {
+  main > .section.super-cruise {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  main > .section.super-cruise > .default-content-wrapper {
+    grid-template-columns: 193px 193px 1fr;
+    padding: 0;
+  }
+
+  main .section.super-cruise .default-content-wrapper :is(h3, p:not(:has(> a:only-child))) {
+    grid-column: 1 / -1;
+  }
+
+  main .section.super-cruise .default-content-wrapper h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.super-cruise .default-content-wrapper p:not(:has(> a:only-child)) {
+    margin-bottom: 21px;
+  }
+
+  main .section.super-cruise .default-content-wrapper p:has(> a:only-child) {
+    justify-content: flex-start;
+  }
+}
+
+/* sections-E.css — band E default-content sections (gallery → recall notice).
+   Lifted from stardust/prototypes/css/parts/50–55 (live bp-1440 / bp-360). Descendant selectors only (EW10). */
+
+/* shared intro type: eyebrow h2 + title h3 (+ lede) */
+main .section:is(.gallery-intro, .bed-intro, .safety-intro, .faq-intro) .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/22.4px var(--f-black);
+  letter-spacing: 0;
+  color: var(--c-text);
+}
+
+main .section:is(.gallery-intro, .bed-intro, .safety-intro) .default-content-wrapper h3 {
+  margin: 9px 0 0;
+  font: 500 32px/32px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+main .section:is(.bed-intro, .safety-intro) .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+/* gallery: intro above the carousel, "Full Gallery (21)" CTA below it */
+main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+  width: 256px;
+}
+
+/* bed functionality intro: 40px under the bed video, 18/25.2 lede (<800) */
+main .section.bed-intro {
+  padding-top: 40px;
+}
+
+main .section.bed-intro .default-content-wrapper p {
+  font-size: 18px;
+  line-height: 25.2px;
+}
+
+/* safety: intro, 3-column feature list, note; disclaimer + CTA below the video carousel */
+main .section.safety-intro {
+  padding-top: 100px;
+}
+
+main .section.safety-intro .default-content-wrapper ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.safety-intro .default-content-wrapper ul + p {
+  margin-top: 32px;
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+  margin-top: 32px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p:has(a) {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+  width: 200px;
+  min-height: 68px;
+}
+
+/* FAQ intro (eyebrow above the accordion) */
+main .section.faq-intro {
+  padding-top: 80px;
+}
+
+main .section.faq-intro .default-content-wrapper {
+  margin-bottom: 8px;
+}
+
+/* NHTSA recall notice */
+main .section.recall-note {
+  padding-top: 140px;
+  padding-bottom: 76px;
+}
+
+main .section.recall-note .default-content-wrapper p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.recall-note .default-content-wrapper a:any-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (width >= 800px) {
+  main .section:is(.gallery-intro, .bed-intro, .safety-intro) .default-content-wrapper h3 {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper {
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper p {
+    margin-right: -8px;
+  }
+
+  main .section.gallery-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+    width: 329px;
+  }
+
+  main .section.bed-intro .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.safety-intro {
+    padding-top: 160px;
+  }
+
+  main .section.safety-intro .default-content-wrapper ul {
+    columns: 3;
+    column-gap: 57px;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper p:has(a) {
+    margin: 0;
+  }
+
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper a:any-link {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  main .section.faq-intro {
+    padding-top: 160px;
+  }
+
+  main .section.faq-intro .default-content-wrapper {
+    margin-bottom: 9px;
+  }
+
+  main .section.recall-note {
+    padding-top: 180px;
+  }
+}
+
+@media (width >= 1200px) {
+  main .section.safety-intro .carousel-wrapper ~ .default-content-wrapper {
+    grid-template-columns: 787px 373px;
+  }
+}
+
+
 
 /* Experience Workspace edit mode (EW3/EW6) — scoped to the da.live editor only */
 .prosemirror-editor p > :is(strong, em) > a:any-link,

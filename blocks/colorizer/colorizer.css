@@ -1,0 +1,268 @@
+/* colorizer — lifted from the live gb-360-colorizer (bp-1440 / bp-360): eyebrow 145px under the statement,
+   stage 688px (spin frame 709×355) + panel 400px at x888 (80px gap), 7 chips 60px / 20px gaps. */
+.colorizer p {
+  margin: 0;
+}
+
+main .section.colorizer-container {
+  padding: 145px 0 120px;
+}
+
+.colorizer-container .default-content-wrapper h2 {
+  margin: 0;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-muted);
+}
+
+.colorizer-container .default-content-wrapper p {
+  margin: 10px 0 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.colorizer-container .colorizer-wrapper {
+  max-width: none;
+  padding: 0 var(--inset);
+}
+
+.colorizer .colorizer-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  margin-top: 60px;
+}
+
+.colorizer .colorizer-stage {
+  position: relative;
+  height: 344px;
+}
+
+.colorizer .colorizer-frame p,
+.colorizer .colorizer-helper p {
+  line-height: 0;
+}
+
+.colorizer .colorizer-frame img {
+  width: 709px;
+  height: 355px;
+  max-width: none;
+  margin: -1px 0 0 -3px;
+}
+
+.colorizer .colorizer-helper {
+  position: absolute;
+  top: 118px;
+  left: 292px;
+}
+
+.colorizer .colorizer-helper img {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+}
+
+.colorizer .colorizer-fullscreen {
+  position: absolute;
+  top: 15px;
+  left: 640px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  padding: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.colorizer .colorizer-fullscreen::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: var(--i-fullscreen) no-repeat center / contain;
+}
+
+.colorizer .colorizer-panel {
+  padding-top: 23px;
+}
+
+.colorizer .colorizer-tabs ul {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.colorizer .colorizer-tabs li {
+  position: relative;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+  cursor: pointer;
+}
+
+.colorizer .colorizer-tabs li.is-active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  background: var(--c-blue);
+}
+
+.colorizer .colorizer-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 12px 20px;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.colorizer .colorizer-chip {
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.colorizer .colorizer-chip.is-active {
+  border-color: var(--c-blue);
+}
+
+.colorizer .colorizer-chip p {
+  line-height: 0;
+}
+
+.colorizer .colorizer-chip img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.colorizer .colorizer-trim {
+  margin-top: 24px;
+}
+
+.colorizer .colorizer-trim p {
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+.colorizer .colorizer-color {
+  margin-top: 17px;
+}
+
+.colorizer .colorizer-color p {
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.colorizer .colorizer-color em {
+  position: relative;
+  top: 11px;
+  margin-left: 4px;
+  font: 500 20px/0 var(--f-sans);
+  font-style: normal;
+  vertical-align: top;
+}
+
+.colorizer .colorizer-actions {
+  margin-top: 48px;
+}
+
+.colorizer .colorizer-actions a:any-link {
+  width: 243px;
+}
+
+.colorizer .colorizer-note {
+  margin-top: -1px;
+}
+
+.colorizer .colorizer-note p {
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+@media (width >= 1200px) {
+  .colorizer .colorizer-body {
+    grid-template-columns: 688px 400px;
+    column-gap: 80px;
+  }
+}
+
+@media (width < 1200px) {
+  .colorizer .colorizer-frame img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
+@media (width < 800px) {
+  main .section.colorizer-container {
+    padding: 25px 0 144px;
+  }
+
+  .colorizer-container .default-content-wrapper p {
+    margin-top: 8px;
+  }
+
+  .colorizer .colorizer-body {
+    grid-template-columns: 1fr;
+    margin-top: 39px;
+  }
+
+  .colorizer .colorizer-stage {
+    height: 156px;
+  }
+
+  .colorizer .colorizer-frame img {
+    width: 312px;
+    height: 156px;
+  }
+
+  .colorizer .colorizer-helper {
+    top: 42px;
+    left: 116px;
+  }
+
+  .colorizer .colorizer-helper img {
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+  }
+
+  .colorizer .colorizer-fullscreen {
+    display: none;
+  }
+
+  .colorizer .colorizer-panel {
+    padding: 39px 24px 0;
+  }
+
+  .colorizer .colorizer-tabs ul {
+    gap: 15px;
+  }
+
+  .colorizer .colorizer-tabs li {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .colorizer .colorizer-chips {
+    grid-template-columns: repeat(3, 60px);
+  }
+
+  .colorizer .colorizer-actions a:any-link {
+    width: 264px;
+  }
+
+  .colorizer .colorizer-note {
+    margin-top: 16px;
+    text-align: center;
+  }
+}

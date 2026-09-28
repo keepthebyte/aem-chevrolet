@@ -1,0 +1,114 @@
+/* sections-B.css — default-content section styles for band B (trims head + CTA, range intro, range/charging media).
+   Values from stardust/prototypes/css/parts/20-band-b.css. Descendant selectors only (EW10). */
+
+/* trims: eyebrow above the carousel, Compare Models CTA below it */
+main .section.trims .default-content-wrapper h2 {
+  margin: 0;
+  font: 900 16px/22.4px var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.trims .default-content-wrapper p {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px 0 0;
+}
+
+main .section.trims .default-content-wrapper a.button {
+  width: 270px;
+}
+
+/* range-intro: eyebrow h2, heading h2, lede (range-features block follows in the same section) */
+main .section.range-intro .default-content-wrapper h2 {
+  margin: 40px 0 0;
+  font: 900 16px/22.4px var(--f-black);
+  letter-spacing: 0;
+  color: var(--c-text);
+}
+
+main .section.range-intro .default-content-wrapper h2 ~ h2 {
+  margin-top: 8px;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -.8px;
+}
+
+main .section.range-intro .default-content-wrapper p {
+  margin: 9px 0 0;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+/* range-media: desktop picture, then the <800 crop, then an optional caption (hidden <800, as on source) */
+main .section.range-media {
+  margin-top: 120px;
+}
+
+main .section.range-intro + .section.range-media {
+  margin-top: 140px;
+}
+
+main .section.range-media .default-content-wrapper p {
+  margin: 0;
+}
+
+main .section.range-media .default-content-wrapper p:not(:has(picture, img)) {
+  min-height: 39px;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+main .section.range-media .default-content-wrapper p:has(picture, img) {
+  line-height: 0;
+}
+
+main .section.range-media .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+  display: none;
+}
+
+main .section.range-media .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+
+@media (width < 800px) {
+  main .section.trims .default-content-wrapper p {
+    justify-content: center;
+  }
+
+  main .section.trims .default-content-wrapper a.button {
+    width: 200px;
+  }
+
+  main .section.range-intro .default-content-wrapper h2 ~ h2 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -.64px;
+  }
+
+  main .section.range-intro .default-content-wrapper p {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  main .section.range-intro + .section.range-media {
+    margin-top: 133px;
+  }
+
+  main .section.range-media .default-content-wrapper {
+    padding: 0;
+  }
+
+  main .section.range-media .default-content-wrapper p:not(:has(picture, img)) {
+    display: none;
+  }
+
+  main .section.range-media .default-content-wrapper p:has(picture, img) {
+    display: none;
+  }
+
+  main .section.range-media .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+    display: block;
+  }
+}

@@ -1,0 +1,47 @@
+/* stats — variant `technology` (band D: 4 cabin-tech stats). Rows: cell 1 figure, cell 2 caption. */
+.stats.technology {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0;
+  padding: 52px var(--inset) 0;
+}
+
+.stats.technology > div {
+  margin-bottom: 23px;
+  border-bottom: 1px solid var(--c-text);
+  padding-bottom: 8px;
+}
+
+.stats.technology > div:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 8px;
+}
+
+.stats.technology > div > div:first-child {
+  font: 700 20px/24.5px var(--f-sans);
+}
+
+.stats.technology > div > div:last-child {
+  font: 500 14px/19.6px var(--f-sans);
+}
+
+@media (width >= 800px) {
+  .stats.technology {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 40px;
+    align-items: end;
+    padding-top: 59px;
+  }
+
+  .stats.technology > div,
+  .stats.technology > div:last-child {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--c-text);
+  }
+
+  .stats.technology > div > div:first-child {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+}

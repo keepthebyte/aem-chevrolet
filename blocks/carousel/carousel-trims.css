@@ -1,0 +1,209 @@
+/* carousel.trims — COMPARE 3 SILVERADO EV MODELS (band B). Values from prototypes/css/parts/20-band-b.css (live bp-1440 / bp-360).
+   Cells: 1 media (plate + truck), 2 head (h3 name + price lines, overlaid on the plate), 3 body (caption?, title, list, links). */
+.carousel.trims {
+  --carousel-gap: 40px;
+  --carousel-slide: 560px;
+
+  margin-top: 32px;
+}
+
+.carousel.trims .carousel-viewport {
+  padding-left: calc(var(--inset) + 20px);
+  scroll-padding-inline-start: calc(var(--inset) + 20px);
+}
+
+.carousel.trims .carousel-slide {
+  position: relative;
+}
+
+/* 1 — media: plate clipped to its visible box, truck cutout overlapping below it */
+.carousel.trims .carousel-media {
+  position: relative;
+  height: 385px;
+}
+
+.carousel.trims .carousel-media-item-1 {
+  height: 281px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel.trims .carousel-media-item-2 {
+  position: absolute;
+  left: 20px;
+  top: 125px;
+  width: 520px;
+}
+
+.carousel.trims .carousel-slide[data-slide="2"] .carousel-media-item-2 { top: 114px; }
+.carousel.trims .carousel-slide[data-slide="3"] .carousel-media-item-2 { top: 128px; }
+
+.carousel.trims .carousel-cell-3 p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+/* 2 — head overlaid on the plate */
+.carousel.trims .carousel-cell-2 {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+}
+
+.carousel.trims .carousel-cell-2 h3 {
+  margin: 0;
+  font: 900 40px/.8 var(--f-black);
+  letter-spacing: 0;
+  color: #fff;
+}
+
+.carousel.trims .carousel-cell-2 p {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: #fff;
+}
+
+.carousel.trims .carousel-cell-2 h3 ~ p {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+.carousel.trims .carousel-cell-2 p ~ p {
+  font-size: 12px;
+  line-height: 16.8px;
+}
+
+/* 3 — body */
+.carousel.trims .carousel-cell-3 {
+  padding: 0 20px;
+}
+
+
+.carousel.trims .carousel-cell-3 p:not(:has(strong, a)) {
+  margin: 0 -20px;
+  text-indent: 8.6px; /* source leads the caption with "&nbsp; &nbsp;" (whitespace does not survive DA, #112) */
+}
+
+.carousel.trims .carousel-cell-3 p:has(strong) {
+  margin-top: 40px;
+  font: 700 20px/28px var(--f-sans);
+}
+
+.carousel.trims .carousel-cell-3 strong {
+  font-weight: inherit;
+}
+
+.carousel.trims .carousel-cell-3 ul {
+  margin: 8px 0 0;
+  padding: 0 0 0 18px;
+  list-style: disc;
+  font: 500 14px/19.6px var(--f-sans);
+}
+
+.carousel.trims .carousel-cell-3 p:has(a) {
+  display: flex;
+  gap: 40px;
+}
+
+.carousel.trims .carousel-cell-3 a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: 193px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.carousel.trims .carousel-cell-3 a:any-link::after {
+  content: "";
+  position: relative;
+  top: 1px;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+.carousel.trims .carousel-nav {
+  margin-top: 23px;
+}
+
+.carousel.trims .carousel-counter {
+  display: none;
+}
+
+@media (width < 800px) {
+  .carousel.trims {
+    --carousel-gap: 24px;
+    --carousel-slide: 266px;
+  }
+
+  .carousel.trims .carousel-viewport {
+    padding-left: var(--inset);
+    scroll-padding-inline-start: var(--inset);
+  }
+
+  .carousel.trims .carousel-media { height: 183px; }
+
+  .carousel.trims .carousel-media-item-1 {
+    height: 134px;
+    border-radius: 4px;
+  }
+
+  .carousel.trims .carousel-media-item-2,
+  .carousel.trims .carousel-slide[data-slide] .carousel-media-item-2 {
+    left: 12px;
+    top: 81px;
+    width: 242px;
+  }
+
+  .carousel.trims .carousel-cell-2 {
+    left: 12px;
+    right: 12px;
+  }
+
+  .carousel.trims .carousel-cell-2 h3 { font-size: 32px; }
+
+  .carousel.trims .carousel-cell-3 { padding: 0 12px; }
+
+  .carousel.trims .carousel-cell-3 p:not(:has(strong, a)) {
+    margin: 0 -12px;
+    padding-top: 16.8px; /* source mobile set leads the caption with <br> */
+    text-indent: 0;
+  }
+
+  .carousel.trims .carousel-cell-3 p:has(a) {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .carousel.trims .carousel-cell-3 p:has(strong) {
+    margin-top: 56px;
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .carousel.trims .carousel-cell-3 p:not(:has(strong, a)) ~ p:has(strong) {
+    margin-top: 40px;
+  }
+
+
+  .carousel.trims .carousel-cell-3 a:any-link { width: 100%; }
+
+  .carousel.trims .carousel-nav {
+    justify-content: flex-start;
+    gap: 0;
+    margin-top: 24px;
+    padding-left: calc(var(--inset) + 77px);
+  }
+
+  .carousel.trims .carousel-counter {
+    display: block;
+    margin: 0 27px 0 23px;
+  }
+}

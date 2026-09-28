@@ -1,0 +1,26 @@
+/* sections-A — default-content section styles authored by band A (scoped main .section.<style>, descendant selectors only) */
+
+/* statement — centered display headline (gb-headline2-black): 180px under the calculator (161px < 800) */
+main .section.statement {
+  padding-top: 180px;
+}
+
+main .section.statement h2 {
+  margin: 0;
+  font: 900 40px/0.8 var(--f-black);
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--c-text);
+}
+
+@media (width >= 800px) {
+  main .section.statement h2 {
+    font-size: 48px;
+  }
+}
+
+@media (width < 800px) {
+  main .section.statement {
+    padding-top: 161px;
+  }
+}

@@ -1,0 +1,53 @@
+/* columns trio — 3 image + title + subtitle units (band C, prototype parts/34-design .bc-trio). */
+.columns.trio {
+  margin-top: 60px;
+  padding-inline: var(--inset, 24px);
+}
+
+.columns.trio > div {
+  display: grid;
+  gap: 20px;
+  align-items: start;
+}
+
+.columns.trio > div > div {
+  order: unset;
+}
+
+.columns.trio p {
+  margin: 0;
+  font: 500 16px/1.4 var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.trio p:has(picture, img) {
+  line-height: 0;
+}
+
+.columns.trio img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+.columns.trio p:has(strong) {
+  margin-top: 20px;
+  font: 700 20px/1.2 var(--f-sans);
+}
+
+.columns.trio strong {
+  font-weight: inherit;
+}
+
+@media (width >= 800px) {
+  .columns.trio > div {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+
+  .columns.trio p:has(strong) {
+    margin-top: 19px;
+    font-size: 24px;
+  }
+}

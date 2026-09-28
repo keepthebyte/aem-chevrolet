@@ -1,0 +1,204 @@
+/* sections-D — band D default-content sections (feature-image, feature-intro, trailboss, tech, super-cruise).
+   Values lifted from the live page (bp-1440 / bp-360). Descendant selectors only (EW10). */
+/* stylelint-disable no-descending-specificity -- rules are scoped to different sections/cells; no element matches two of them */
+
+/* feature-image: full-width picture; desktop + mobile renditions authored, one shown per breakpoint
+   (the mobile crop is the 320x320 rendition — selected by its intrinsic size, not by position) */
+main .section.feature-image .default-content-wrapper {
+  padding-top: 80px;
+}
+
+main .section.feature-image .default-content-wrapper p {
+  line-height: 0;
+}
+
+main .section.feature-image .default-content-wrapper img {
+  width: 100%;
+}
+
+main .section.feature-image .default-content-wrapper p:has(img:not([width="320"])) {
+  display: none;
+}
+
+@media (width >= 800px) {
+  main .section.feature-image.gap-120 .default-content-wrapper {
+    padding-top: 120px;
+  }
+
+  main .section.feature-image.gap-140 .default-content-wrapper {
+    padding-top: 140px;
+  }
+
+  main .section.feature-image .default-content-wrapper p:has(img:not([width="320"])) {
+    display: block;
+  }
+
+  main .section.feature-image .default-content-wrapper p:has(img[width="320"]) {
+    display: none;
+  }
+}
+
+/* feature-intro: eyebrow (h2) + title (h3) + lede */
+main .section.feature-intro .default-content-wrapper {
+  padding-top: 40px;
+}
+
+main .section.feature-intro .default-content-wrapper h2 {
+  font: 900 16px/1.4 var(--f-black);
+  color: var(--c-text);
+}
+
+main .section.feature-intro .default-content-wrapper h3 {
+  margin-top: 8px;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+}
+
+main .section.feature-intro .default-content-wrapper p:not(:has(img)) {
+  margin-top: 8px;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+@media (width >= 800px) {
+  main .section.feature-intro .default-content-wrapper h3 {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.feature-intro .default-content-wrapper p:not(:has(img)) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* trailboss: intro + "features" head (the h3 that heads the lists — selected relationally, no position) + 3 lists + image pair */
+main .section.trailboss .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+main .section.trailboss .default-content-wrapper h3:has(+ ul) {
+  margin-top: 30px;
+  letter-spacing: normal;
+  margin-bottom: 20px;
+  font: 700 18px/25.2px var(--f-sans);
+}
+
+main .section.trailboss .default-content-wrapper ul {
+  padding-left: 18px;
+  font: 500 12px/16.8px var(--f-sans);
+}
+
+main .section.trailboss .default-content-wrapper p:has(img) {
+  margin-top: 20px;
+  line-height: 0;
+}
+
+main .section.trailboss .default-content-wrapper img {
+  width: 100%;
+}
+
+@media (width >= 800px) {
+  main .section.trailboss .default-content-wrapper {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 40px;
+  }
+
+  main .section.trailboss .default-content-wrapper > * {
+    grid-column: 1 / -1;
+  }
+
+  main .section.trailboss .default-content-wrapper h3:has(+ ul) {
+    margin-bottom: 32px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.trailboss .default-content-wrapper ul {
+    grid-column: span 2;
+  }
+
+  main .section.trailboss .default-content-wrapper p:has(img) {
+    grid-column: span 3;
+    margin-top: 60px;
+  }
+}
+
+/* super-cruise: video block + text, side by side */
+main > .section.super-cruise {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 82px var(--inset) 80px;
+}
+
+main > .section.super-cruise > .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 0 0;
+}
+
+main .section.super-cruise .default-content-wrapper h3 {
+  font: 700 18px/25.2px var(--f-sans);
+}
+
+main .section.super-cruise .default-content-wrapper p {
+  font: 500 16px/22.4px var(--f-sans);
+}
+
+main .section.super-cruise .default-content-wrapper p:not(:has(> a:only-child)) {
+  margin: 8px 0 20px;
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) {
+  display: flex;
+  justify-content: center;
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+}
+
+main .section.super-cruise .default-content-wrapper p:has(> a:only-child) > a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width >= 800px) {
+  main > .section.super-cruise {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  main > .section.super-cruise > .default-content-wrapper {
+    grid-template-columns: 193px 193px 1fr;
+    padding: 0;
+  }
+
+  main .section.super-cruise .default-content-wrapper :is(h3, p:not(:has(> a:only-child))) {
+    grid-column: 1 / -1;
+  }
+
+  main .section.super-cruise .default-content-wrapper h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  main .section.super-cruise .default-content-wrapper p:not(:has(> a:only-child)) {
+    margin-bottom: 21px;
+  }
+
+  main .section.super-cruise .default-content-wrapper p:has(> a:only-child) {
+    justify-content: flex-start;
+  }
+}
+

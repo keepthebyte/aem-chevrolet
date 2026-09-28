@@ -1,0 +1,56 @@
+/* carousel gallery — "Bold perspective" (band E; prototype parts/50-gallery). Slides bleed to the right viewport edge. */
+.carousel.gallery {
+  --carousel-gap: 24px;
+  --carousel-slide: 266px;
+
+  margin-top: 20px;
+  padding: 0 var(--inset);
+}
+
+.carousel.gallery .carousel-viewport {
+  margin-right: calc(-1 * var(--inset));
+}
+
+.carousel.gallery .carousel-media img {
+  height: 133px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.carousel.gallery .carousel-text p {
+  margin: 0;
+  padding-top: 16.8px; /* the source caption leads with a blank line (<br>) — modeled as padding (#112) */
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.carousel.gallery .carousel-nav {
+  justify-content: flex-start;
+  margin-top: 24px;
+  padding-left: 104px;
+}
+
+@media (width >= 800px) {
+  .carousel.gallery {
+    --carousel-gap: 40px;
+    --carousel-slide: 560px;
+  }
+
+  .carousel.gallery .carousel-slides {
+    padding-left: 20px;
+  }
+
+  .carousel.gallery .carousel-viewport {
+    scroll-padding-left: 20px;
+  }
+
+  .carousel.gallery .carousel-media img {
+    height: 280px;
+  }
+
+  .carousel.gallery .carousel-nav {
+    justify-content: center;
+    margin-top: 23px;
+    padding-left: 0;
+  }
+}

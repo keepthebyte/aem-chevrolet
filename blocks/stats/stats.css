@@ -1,0 +1,65 @@
+@import url('stats-capability.css');
+@import url('stats-technology.css');
+@import url('stats-charging.css');
+
+/* stats — lifted from the live stat band (bp-1440 / bp-360): 4 columns 270px / 40px gap at >= 1200,
+   bottom-aligned, 1px #262626 rule 8px under the label; < 800 stacked with 20px gaps, last without rule. */
+.stats-container .stats-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 40px;
+  align-items: end;
+  padding: 60px var(--inset) 0;
+}
+
+.stats .stats-item {
+  border-bottom: 1px solid var(--c-text);
+  padding-bottom: 8px;
+}
+
+.stats:not(.technology, .capability) .stat-value :is(p, h2, h3, h4) {
+  margin: 0;
+  font: 700 32px/33.4px var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+.stats .stat-value strong {
+  font-weight: 700;
+}
+
+.stats:not(.technology, .capability) .stat-label p {
+  margin: 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+@media (width >= 1200px) {
+  .stats {
+    grid-template-columns: repeat(4, 270px);
+  }
+}
+
+@media (width < 800px) {
+  .stats {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    padding-top: 90px;
+  }
+
+  .stats .stats-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .stats:not(.technology, .capability) .stat-value :is(p, h2, h3, h4) {
+    font-size: 24px;
+    line-height: 25.4px;
+    letter-spacing: -0.48px;
+  }
+}

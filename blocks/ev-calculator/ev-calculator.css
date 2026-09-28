@@ -1,0 +1,276 @@
+/* ev-calculator — lifted from the live #gasvselectric widget (bp-1440 / bp-360): box x125 w1190 at 1440,
+   fields 397/397 + 367px button (10px/19px gaps), results column 393px, image 797×399 beside it. */
+.ev-calculator-container .ev-calculator-wrapper {
+  max-width: none;
+  padding: 112px 125px 0;
+}
+
+.ev-calculator .ev-calculator-head,
+.ev-calculator .ev-calculator-disclaimer {
+  text-align: center;
+}
+
+.ev-calculator .ev-calculator-title :is(h1, h2, h3) {
+  margin: 0;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-sub :is(h2, h3, p) {
+  margin: 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-form {
+  display: grid;
+  grid-template-columns: 397px 397px 376px;
+  column-gap: 10px;
+  margin-top: 32px;
+}
+
+.ev-calculator .ev-calculator-field {
+  position: relative;
+  height: 56px;
+  border-radius: 4px 4px 0 0;
+  background: var(--c-chrome);
+}
+
+.ev-calculator .ev-calculator-vehicle {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.ev-calculator .ev-calculator-zip {
+  border-bottom: 1px solid var(--c-rule);
+}
+
+.ev-calculator .ev-calculator-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  pointer-events: none;
+}
+
+.ev-calculator .ev-calculator-label p {
+  margin: 0;
+  font: 500 16px/22px var(--f-sans);
+  color: var(--c-muted);
+}
+
+.ev-calculator .ev-calculator-vehicle-label {
+  top: 5px;
+}
+
+.ev-calculator .ev-calculator-vehicle-label p {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.ev-calculator select,
+.ev-calculator input {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  font: 500 16px/22px var(--f-sans);
+  color: var(--c-text);
+}
+
+.ev-calculator select {
+  padding: 27px 50px 6px 16px;
+}
+
+.ev-calculator input {
+  padding: 24px 16px 9.6px;
+}
+
+.ev-calculator .ev-calculator-vehicle::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+  background: var(--i-select-chevron) no-repeat center / contain;
+  pointer-events: none;
+}
+
+.ev-calculator .ev-calculator-submit {
+  position: relative;
+  height: 55px;
+  margin-left: 9px;
+}
+
+.ev-calculator .ev-calculator-submit button {
+  width: 100%;
+  height: 100%;
+}
+
+.ev-calculator .ev-calculator-submit-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.ev-calculator .ev-calculator-submit-label p {
+  margin: 0;
+  font: 600 16px/27px var(--f-sans);
+  color: #fff;
+}
+
+.ev-calculator .ev-calculator-results {
+  position: relative;
+  min-height: 380px;
+  margin-top: 60px;
+}
+
+.ev-calculator .ev-calculator-cols {
+  width: 393px;
+}
+
+.ev-calculator .ev-calculator-result {
+  border-bottom: 3px solid var(--c-blue);
+  padding: 92px 0 20px;
+}
+
+.ev-calculator .ev-calculator-result.gas {
+  border-bottom: 1px solid var(--c-text);
+  padding-top: 95px;
+}
+
+.ev-calculator .ev-calculator-value p {
+  margin: 0;
+  font: 500 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-result-label p {
+  margin: 0;
+  font: 500 20px/28px var(--f-sans);
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-note {
+  width: 370px;
+  margin-top: 17px;
+}
+
+.ev-calculator .ev-calculator-note p {
+  margin: 0;
+  font: 500 12px/13.5px var(--f-sans);
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-media {
+  position: absolute;
+  top: -32px;
+  left: 393px;
+  width: 797px;
+  height: 399px;
+}
+
+.ev-calculator .ev-calculator-media p {
+  margin: 0;
+  line-height: 0;
+}
+
+.ev-calculator .ev-calculator-media img {
+  width: 797px;
+  height: 399px;
+  max-width: none;
+}
+
+.ev-calculator .ev-calculator-disclaimer {
+  margin-top: 39px;
+}
+
+.ev-calculator .ev-calculator-disclaimer :is(h2, h3, p) {
+  margin: 0;
+  font: 500 12px/16.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.ev-calculator .ev-calculator-disclaimer a:any-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (width < 1200px) {
+  .ev-calculator-container .ev-calculator-wrapper {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+@media (width < 800px) {
+  .ev-calculator-container .ev-calculator-wrapper {
+    padding: 112px 29px 0;
+  }
+
+  .ev-calculator .ev-calculator-title :is(h1, h2, h3) {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .ev-calculator .ev-calculator-form {
+    grid-template-columns: 1fr;
+    row-gap: 29px;
+    margin-top: 24px;
+    padding-right: 10px;
+  }
+
+  .ev-calculator .ev-calculator-submit {
+    margin: 10px -10px 0 0;
+  }
+
+  .ev-calculator .ev-calculator-results {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .ev-calculator .ev-calculator-cols {
+    width: auto;
+    margin-top: 32px;
+  }
+
+  .ev-calculator .ev-calculator-media,
+  .ev-calculator .ev-calculator-media img {
+    position: static;
+    width: 302px;
+    height: 151px;
+  }
+
+  .ev-calculator .ev-calculator-result,
+  .ev-calculator .ev-calculator-result.gas {
+    padding-top: 50px;
+  }
+
+  .ev-calculator .ev-calculator-value p {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .ev-calculator .ev-calculator-result-label p {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .ev-calculator .ev-calculator-note {
+    width: auto;
+    margin-top: 16px;
+  }
+
+  .ev-calculator .ev-calculator-disclaimer {
+    margin-top: 24px;
+  }
+}

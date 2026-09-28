@@ -1,3 +1,9 @@
+@import url('columns-powershift.css');
+@import url('columns-trio.css');
+@import url('columns-custom.css');
+@import url('columns-tailgate.css');
+@import url('columns-compare.css');
+
 .columns > div {
   display: flex;
   flex-direction: column;

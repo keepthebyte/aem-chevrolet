@@ -1,0 +1,76 @@
+/* accordion — live gb-expander (FAQ); lifted from prototype css/parts/54-faq.css + blueprint */
+.accordion {
+  padding: 0 var(--inset);
+}
+
+.accordion .accordion-item {
+  margin-bottom: 1px;
+}
+
+.accordion .accordion-head {
+  display: flex;
+  align-items: center;
+  height: 76px;
+  border-bottom: 1px solid #8c8c8c;
+  padding: 24px 32px 23px;
+  cursor: pointer;
+}
+
+.accordion .accordion-toggle {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0 24px 0 0;
+  border: 0;
+  padding: 0;
+  background: var(--i-plus) center / contain no-repeat;
+  cursor: pointer;
+}
+
+.accordion .accordion-title :is(h2, h3, h4, p) {
+  margin: 0;
+  font: 700 20px/28px var(--f-sans);
+  color: var(--c-muted);
+}
+
+.accordion .accordion-body {
+  overflow: hidden;
+  transition: height 0.3s;
+  background: var(--c-chrome);
+}
+
+.accordion .accordion-content {
+  padding: 40px 120px;
+}
+
+.accordion .accordion-content :is(p, ul) {
+  margin: 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.accordion .accordion-content p + p {
+  margin-top: 22.4px;
+}
+
+@media (width < 800px) {
+  .accordion .accordion-head {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 83px;
+    padding: 16px;
+  }
+
+  .accordion .accordion-toggle {
+    margin: 0 0 0 16px;
+  }
+
+  .accordion .accordion-title :is(h2, h3, h4, p) {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .accordion .accordion-content {
+    padding: 40px 24px;
+  }
+}

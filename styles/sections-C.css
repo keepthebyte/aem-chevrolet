@@ -1,0 +1,127 @@
+/* sections-C.css — band C default-content section styles (combined with main's `intro` / `media`).
+   Modifiers: c-charging, c-capability, c-design (intro heads), c-boat, c-design-hero (art-directed images).
+   Geometry from stardust/prototypes/css/parts/30-band-c.css. Descendant selectors only (EW10). */
+
+/* ---- intro heads ---- */
+main .section.intro:is(.c-charging, .c-capability, .c-design) {
+  margin-top: 40px;
+  color: var(--c-text);
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper {
+  padding-inline: var(--inset, 24px);
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper :is(h2, h3) {
+  margin: 8px 0 0;
+  font: 500 32px/1 var(--f-sans);
+  letter-spacing: -0.64px;
+  color: var(--c-text);
+}
+
+/* eyebrow: the h2 that is followed by the title heading */
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper h2:has(+ :is(h2, h3)) {
+  margin: 0;
+  font: 900 16px/1.4 var(--f-black);
+  letter-spacing: normal;
+}
+
+main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+}
+
+main .section.intro.c-charging .default-content-wrapper p {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+@media (width >= 800px) {
+  main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper :is(h2, h3) {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+
+  main .section.intro:is(.c-charging, .c-capability, .c-design) .default-content-wrapper h2:has(+ :is(h2, h3)) {
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+
+  main .section.intro:is(.c-capability, .c-design) .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* CHARGING: intro | stats side by side */
+  main .section.intro.c-charging {
+    display: grid;
+    grid-template-columns: minmax(0, 683fr) minmax(0, 477fr);
+    column-gap: 40px;
+    align-items: start;
+    padding-inline: var(--inset, 24px);
+  }
+
+  main .section.intro.c-charging .default-content-wrapper,
+  main .section.intro.c-charging .stats {
+    padding-inline: 0;
+  }
+}
+
+/* ---- art-directed full-width images (desktop 2:1 + mobile 1:1 authored) ---- */
+main .section.media:is(.c-boat, .c-design-hero) {
+  margin-top: 80px;
+  color: var(--c-text);
+}
+
+main .section.media.c-design-hero {
+  margin-top: 82px;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper {
+  padding-inline: var(--inset, 24px);
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p {
+  margin: 0;
+  font: 500 14px/1.4 var(--f-sans);
+  min-height: 59px;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img) {
+  min-height: 0;
+  line-height: 0;
+}
+
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* first image = desktop rendition, second = mobile crop */
+main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+  display: none;
+}
+
+@media (width >= 800px) {
+  main .section.media:is(.c-boat, .c-design-hero) {
+    margin-top: 140px;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p {
+    min-height: 39px;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img):has(~ p :is(picture, img)) {
+    display: block;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper p:has(picture, img) ~ p:has(picture, img) {
+    display: none;
+  }
+
+  main .section.media:is(.c-boat, .c-design-hero) .default-content-wrapper img {
+    aspect-ratio: 2 / 1;
+  }
+}

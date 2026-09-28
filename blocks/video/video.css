@@ -1,0 +1,48 @@
+@import url('video-bed.css');
+
+/* video — values lifted from the live Brightcove row (bp-1440 / bp-360) */
+.video .video-frame {
+  position: relative;
+  background: #000;
+}
+
+.video .video-frame p {
+  margin: 0;
+  line-height: 0;
+}
+
+.video .video-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* the captured poster frame carries the player's pause control; the button is the
+   accessible hit area over it (static player state until the embed is wired) */
+.video .video-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.video .video-caption {
+  padding: 10px 12px 0;
+}
+
+.video .video-caption :is(h1, h2, h3, h4, h5, h6) {
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+@media (width >= 800px) {
+  .video .video-caption {
+    padding: 10px 20px 0;
+  }
+}

@@ -1,0 +1,98 @@
+/* columns compare — "Silverado EV vs. the competition" image | text + arrow links (band E; prototype parts/53-competition). */
+.columns.compare {
+  margin-top: 80px;
+  padding: 0 var(--inset);
+}
+
+.columns.compare > div {
+  display: grid;
+  gap: 0;
+}
+
+.columns.compare > div > div {
+  order: unset;
+}
+
+.columns.compare img {
+  width: 312px;
+  height: 156px;
+}
+
+.columns.compare h3 {
+  margin: 20px 0 0;
+  font: 500 24px/24px var(--f-sans);
+  letter-spacing: -0.48px;
+  color: var(--c-text);
+}
+
+.columns.compare p {
+  margin: 16px 0 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.compare p:has(picture, img) {
+  margin: 0;
+  line-height: 0;
+}
+
+.columns.compare p:not(:has(a, picture, img)) {
+  margin-bottom: 16px;
+}
+
+.columns.compare p:has(> a:only-child) {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 0;
+}
+
+.columns.compare a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.columns.compare a:any-link::after {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  background: var(--i-link-arrow) center / contain no-repeat;
+}
+
+@media (width >= 800px) {
+  .columns.compare {
+    margin-top: 140px;
+  }
+
+  .columns.compare > div {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    height: 290px;
+    align-items: start;
+  }
+
+  .columns.compare img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .columns.compare h3 {
+    margin-top: 18px;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns.compare > div {
+    grid-template-columns: 580px 620px;
+  }
+}

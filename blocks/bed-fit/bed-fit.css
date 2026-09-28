@@ -1,0 +1,147 @@
+/* bed-fit — lifted from prototype css/parts/51-bed.css (live gb bed tab widget) */
+.bed-fit {
+  padding: 0 var(--inset);
+}
+
+.bed-fit .bed-fit-panel {
+  display: grid;
+  grid-template-columns: 890px 1fr;
+  column-gap: 40px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.bed-fit .bed-fit-panel[hidden] {
+  display: none;
+}
+
+.bed-fit .bed-fit-photo p {
+  margin: 0;
+  line-height: 0;
+}
+
+.bed-fit .bed-fit-photo img {
+  width: 890px;
+  height: 445px;
+}
+
+.bed-fit .bed-fit-photo.has-mobile .bed-fit-photo-mobile {
+  display: none;
+}
+
+.bed-fit .bed-fit-spec p {
+  margin: 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.bed-fit .bed-fit-length :is(p, strong) {
+  font: 700 40px/40px var(--f-sans);
+  letter-spacing: -0.8px;
+}
+
+.bed-fit .bed-fit-sub p {
+  margin-top: 8px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.bed-fit .bed-fit-spec ul {
+  width: 215px;
+  margin: 9px 0 0;
+  padding-left: 22px;
+  font: 500 16px/22.4px var(--f-sans);
+  color: #000;
+}
+
+.bed-fit .bed-fit-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 40px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.bed-fit .bed-fit-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 126px;
+  border: 1px solid #222;
+  padding-top: 19px;
+  cursor: pointer;
+}
+
+.bed-fit .bed-fit-tab.active {
+  height: 122px;
+  border: 2px solid var(--c-blue);
+  padding-top: 16px;
+}
+
+.bed-fit .bed-fit-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.bed-fit .bed-fit-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.bed-fit .bed-fit-label p {
+  margin: 16px 0 0;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+  text-align: center;
+}
+
+@media (width < 1200px) {
+  .bed-fit .bed-fit-panel {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .bed-fit .bed-fit-photo img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (width < 800px) {
+  .bed-fit .bed-fit-panel {
+    display: block;
+  }
+
+  .bed-fit .bed-fit-photo.has-mobile .bed-fit-photo-desktop {
+    display: none;
+  }
+
+  .bed-fit .bed-fit-photo.has-mobile .bed-fit-photo-mobile {
+    display: block;
+  }
+
+  .bed-fit .bed-fit-photo img {
+    width: 312px;
+    height: 312px;
+  }
+
+  .bed-fit .bed-fit-spec {
+    margin-top: 32px;
+  }
+
+  .bed-fit .bed-fit-length :is(p, strong) {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .bed-fit .bed-fit-sub p {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+
+  .bed-fit .bed-fit-tabs {
+    grid-template-columns: 144px 144px;
+    gap: 17px 24px;
+    margin-top: 33px;
+  }
+}

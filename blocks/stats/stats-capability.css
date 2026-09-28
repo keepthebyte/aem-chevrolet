@@ -1,0 +1,39 @@
+/* stats capability — 4 stat row under CAPABILITY (band C, prototype parts/32-capability .bc-stats4).
+   Authored: one row per stat, cell 1 = figure, cell 2 = caption. Decorated DOM (A): .stats-item > .stat-value + .stat-label.
+   stats.css base already supplies grid, 40px gap, bottom alignment and the 8px rule; this file sets type + spacing. */
+.stats.capability.block {
+  margin-top: 40px;
+  padding: 0 var(--inset, 24px);
+  row-gap: 20px;
+  color: var(--c-text);
+}
+
+.stats.capability.block .stat-value :is(p, h2, h3, h4) {
+  margin: 0;
+  font: 700 20px/1.2 var(--f-sans);
+  letter-spacing: normal;
+  color: var(--c-text);
+}
+
+.stats.capability.block .stat-label p {
+  margin: 0;
+  font: 500 14px/1.4 var(--f-sans);
+  color: var(--c-text);
+}
+
+
+@media (width < 800px) {
+  .stats.capability.block .stats-item:last-child {
+    padding-bottom: 8px;
+  }
+}
+
+@media (width >= 800px) {
+  .stats.capability.block {
+    margin-top: 59px;
+  }
+
+  .stats.capability.block .stat-value :is(p, h2, h3, h4) {
+    font-size: 24px;
+  }
+}

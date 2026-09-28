@@ -1,0 +1,104 @@
+/* trade-in — values from prototypes/css/parts/20-band-b.css (live bp-1440 y3950 / bp-360 y4947) */
+.trade-in {
+  margin-top: 120px;
+  padding: 0 var(--inset);
+}
+
+.trade-in .trade-in-row {
+  display: grid;
+  grid-template-columns: 60px 787px 1fr;
+  column-gap: 63px;
+  align-items: start;
+}
+
+.trade-in .trade-in-icon {
+  margin-left: -20px;
+  line-height: 0;
+}
+
+.trade-in .trade-in-icon p {
+  margin: 0;
+}
+
+.trade-in .trade-in-icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.trade-in .trade-in-link p {
+  margin: 0;
+}
+
+.trade-in .trade-in-text {
+  margin-left: -20px;
+  padding-top: 2px;
+}
+
+.trade-in .trade-in-text p {
+  margin: 8px 0 0;
+  font: 500 14px/19.6px var(--f-sans);
+  color: var(--c-text);
+}
+
+.trade-in .trade-in-text p:has(strong) {
+  margin: 0;
+  font: 700 24px/28.8px var(--f-sans);
+}
+
+.trade-in .trade-in-text strong {
+  font-weight: inherit;
+}
+
+.trade-in .trade-in-link {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 6px;
+}
+
+
+.trade-in .trade-in-link a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 48px;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-blue);
+  text-decoration: none;
+}
+
+.trade-in .trade-in-link a:any-link::after {
+  content: "";
+  position: relative;
+  top: 1px;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: var(--i-link-arrow) no-repeat center / contain;
+}
+
+@media (width < 800px) {
+  .trade-in .trade-in-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .trade-in .trade-in-icon {
+    margin: 0 auto 20px;
+  }
+
+  .trade-in .trade-in-text {
+    margin: 0;
+    padding-top: 0;
+  }
+
+  .trade-in .trade-in-text p:has(strong) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .trade-in .trade-in-link {
+    justify-content: center;
+    padding-top: 0;
+    margin-top: 10px;
+  }
+}

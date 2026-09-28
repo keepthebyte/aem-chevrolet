@@ -1,0 +1,60 @@
+/* columns tailgate — "Available Multi-Flex Tailgate" image | text row (band E; prototype parts/51-bed .mft). */
+.columns.tailgate {
+  margin-top: 84px;
+  padding: 0 var(--inset);
+}
+
+.columns.tailgate > div {
+  display: grid;
+  gap: 0;
+}
+
+.columns.tailgate > div > div {
+  order: unset;
+}
+
+.columns.tailgate img {
+  width: 312px;
+  height: 156px;
+}
+
+.columns.tailgate h3 {
+  margin: 20px 0 0;
+  font: 700 18px/25.2px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.tailgate p {
+  margin: 8px 0 0;
+  font: 500 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.columns.tailgate p:has(picture, img) {
+  margin: 0;
+  line-height: 0;
+}
+
+@media (width >= 800px) {
+  .columns.tailgate {
+    margin-top: 120px;
+  }
+
+  .columns.tailgate > div {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .columns.tailgate img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .columns.tailgate h3 {
+    margin-top: 93px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}

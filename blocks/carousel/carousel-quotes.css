@@ -1,0 +1,49 @@
+/* carousel.quotes — media quotes (band B). Cells: 1 quote text, 2 publication logo. Loops (live arrows never disable). */
+.carousel.quotes {
+  --carousel-gap: 80px;
+  --carousel-slide: 100%;
+
+  margin-top: 120px;
+}
+
+.carousel.quotes .carousel-viewport {
+  margin: 0 calc(var(--inset) + 20px);
+}
+
+.carousel.quotes .carousel-slide {
+  text-align: center;
+}
+
+.carousel.quotes .carousel-text p {
+  margin: 0;
+  font: 700 24px/28.8px var(--f-sans);
+  color: var(--c-text);
+}
+
+.carousel.quotes .carousel-media img {
+  width: 360px;
+  margin: 10px auto 0;
+}
+
+.carousel.quotes .carousel-nav {
+  margin-top: 25px;
+}
+
+@media (width < 800px) {
+  .carousel.quotes {
+    --carousel-gap: 48px;
+  }
+
+  .carousel.quotes .carousel-viewport {
+    margin: 0 calc(var(--inset) + 12px);
+  }
+
+  .carousel.quotes .carousel-text p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .carousel.quotes .carousel-media img { width: 132px; }
+
+  .carousel.quotes .carousel-nav { margin-top: 24px; }
+}

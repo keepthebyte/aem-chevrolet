@@ -1,0 +1,84 @@
+/* carousel videos — Chevy Safety Assist posterframes (band E; prototype parts/52-safety).
+   Each slide: poster image (media cell) + caption <h3> and the Brightcove player link (text cell).
+   The player link is config for the delivery-time embed and is not displayed. */
+.carousel.videos {
+  --carousel-gap: 24px;
+  --carousel-slide: 266px;
+
+  margin-top: 19px;
+  padding: 0 var(--inset);
+}
+
+.carousel.videos .carousel-viewport {
+  margin-right: calc(-1 * var(--inset));
+}
+
+.carousel.videos .carousel-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #000;
+}
+
+.carousel.videos .carousel-media img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.carousel.videos .carousel-media::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  background: var(--i-play) center / 100% auto no-repeat;
+  pointer-events: none;
+}
+
+.carousel.videos .carousel-text :is(h2, h3, h4) {
+  margin: 10px 12px 0;
+  font: 600 16px/22.4px var(--f-sans);
+  color: var(--c-text);
+}
+
+.carousel.videos .carousel-text p:has(a[href*="players.brightcove.net"]) {
+  display: none;
+}
+
+.carousel.videos .carousel-nav {
+  justify-content: flex-start;
+  margin-top: 24px;
+  padding-left: 104px;
+}
+
+@media (width >= 800px) {
+  .carousel.videos {
+    --carousel-gap: 40px;
+    --carousel-slide: 560px;
+
+    margin-top: 60px;
+  }
+
+  .carousel.videos .carousel-slides {
+    padding-left: 20px;
+  }
+
+  .carousel.videos .carousel-viewport {
+    scroll-padding-left: 20px;
+  }
+
+  .carousel.videos .carousel-media img {
+    height: 315px;
+  }
+
+  .carousel.videos .carousel-text :is(h2, h3, h4) {
+    margin: 10px 20px 0;
+  }
+
+  .carousel.videos .carousel-nav {
+    justify-content: center;
+    padding-left: 0;
+  }
+}
