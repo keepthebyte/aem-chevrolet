@@ -1166,7 +1166,7 @@ main .section.recall-note .default-content-wrapper a:any-link {
   }
 }
 
-/* sections-R1 — `compare-section`: centered h2 (gb-headline3) + h3 lede (gb-headline6, 500) above the compare-table block,
+/* sections-R1 — `compare-section`: centered h2 (gb-headline3) + h3 (rivian) / p (ford) lede (gb-headline6, 500) above the compare-table block,
    CTA pair below it (Vehicle Details 270px / Request a Test Drive 290px, right-aligned at the inset, gap 28, 40px under the table;
    < 800: stacked 280px centered, gap 16, 32px under the table). Lifted from rivian bp-1440 / bp-360. */
 main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) {
@@ -1180,10 +1180,16 @@ main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrap
   color: var(--c-text);
 }
 
-main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) :is(h3, p) {
   margin-top: 20px;
   font: 500 20px/28px var(--f-sans);
   color: var(--c-text);
+}
+
+/* ford sibling: the source's lede is a <p> (rivian: <h3>) — 12px under the h2, table 20px lower (ford bp-1440 / bp-360) */
+main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) p {
+  margin-top: 12px;
+  padding-bottom: 20px;
 }
 
 main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
@@ -1216,9 +1222,13 @@ main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper 
     letter-spacing: -0.64px;
   }
 
-  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) h3 {
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) :is(h3, p) {
     font-size: 18px;
     line-height: 25.2px;
+  }
+
+  main .section.compare-section .default-content-wrapper:has(~ .compare-table-wrapper) p {
+    margin-top: 8px;
   }
 
   main .section.compare-section .compare-table-wrapper ~ .default-content-wrapper {
@@ -1259,6 +1269,13 @@ main .section.h2h-feature .default-content-wrapper h2 ~ h2 {
 
 main .section.h2h-feature .columns-wrapper {
   margin-top: 20px;
+}
+
+/* Ford authors the sub as <p> (8px under the heading) */
+main .section.h2h-feature .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+  color: var(--c-text);
 }
 
 /* h2h-video: video h2h block + text (video on top < 800; text 5/12 left · video 7/12 right >= 800) */
@@ -1416,6 +1433,11 @@ main .section.h2h-wait .default-content-wrapper a.button:any-link:hover {
 
   main .section.h2h-feature .columns-wrapper {
     margin-top: 40px;
+  }
+
+  main .section.h2h-feature .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
   }
 
   main > .section.h2h-video {

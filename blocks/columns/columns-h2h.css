@@ -100,3 +100,70 @@
     line-height: 28px;
   }
 }
+
+/* Ford sibling (ford-bp-1440/360): `mirror` = text 5/12 left · image 7/12 right (1440 image x637 683×342, text +57px);
+   `wide` = image 7/12 left overhanging its column (1440 x100 w711; 360 x12 w324), text 5/12 right (+56px), 80px (360: 31px) before
+   the next section. < 800 both: image first, 30px title gap, 22px link gap. */
+.columns.h2h:is(.mirror, .wide) {
+  margin-top: 87px;
+}
+
+.columns.h2h.wide {
+  margin-top: 79px;
+  margin-bottom: 31px;
+}
+
+.columns.h2h:is(.mirror, .wide) h3 {
+  margin-top: 30px;
+}
+
+.columns.h2h:is(.mirror, .wide) p:has(a:not([href*="/content/experience-fragments/"])) {
+  margin-top: 22px;
+}
+
+.columns.h2h.wide .columns-img-col {
+  margin: 0 -12px;
+}
+
+@media (width >= 800px) {
+  .columns.h2h:is(.mirror, .wide) {
+    margin-top: 80px;
+  }
+
+  .columns.h2h.wide {
+    margin-bottom: 80px;
+  }
+
+  .columns.h2h:is(.mirror, .wide) > div {
+    grid-template-columns: calc((100% + 40px) * 5 / 12 - 40px) 1fr;
+  }
+
+  .columns.h2h.wide > div {
+    grid-template-columns: calc((100% + 40px) * 7 / 12 - 40px) 1fr;
+  }
+
+  .columns.h2h.wide .columns-img-col {
+    margin: 0 -8px 0 -20px;
+  }
+
+  .columns.h2h.mirror > div > div:not(.columns-img-col) {
+    grid-area: 1 / 1;
+    padding-top: 57px;
+  }
+
+  .columns.h2h.mirror > div > .columns-img-col {
+    grid-area: 1 / 2;
+  }
+
+  .columns.h2h.wide > div > div:not(.columns-img-col) {
+    padding-top: 56px;
+  }
+
+  .columns.h2h:is(.mirror, .wide) h3 {
+    margin-top: 0;
+  }
+
+  .columns.h2h:is(.mirror, .wide) p:has(a:not([href*="/content/experience-fragments/"])) {
+    margin-top: 8px;
+  }
+}

@@ -26,6 +26,13 @@ main .section.h2h-feature .columns-wrapper {
   margin-top: 20px;
 }
 
+/* Ford authors the sub as <p> (8px under the heading) */
+main .section.h2h-feature .default-content-wrapper p {
+  margin: 8px 0 0;
+  font: 500 18px/25.2px var(--f-sans);
+  color: var(--c-text);
+}
+
 /* h2h-video: video h2h block + text (video on top < 800; text 5/12 left · video 7/12 right >= 800) */
 main > .section.h2h-video {
   display: grid;
@@ -181,6 +188,11 @@ main .section.h2h-wait .default-content-wrapper a.button:any-link:hover {
 
   main .section.h2h-feature .columns-wrapper {
     margin-top: 40px;
+  }
+
+  main .section.h2h-feature .default-content-wrapper p {
+    font-size: 20px;
+    line-height: 28px;
   }
 
   main > .section.h2h-video {
